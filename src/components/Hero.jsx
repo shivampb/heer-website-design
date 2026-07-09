@@ -153,53 +153,10 @@ export default function Hero({ onStartJourney }) {
               <span>Why Choose Heer</span>
             </button>
           </div>
-
-          {/* 4 Key Pillars in Responsive 2x2 Grid on Mobile / Inline on Desktop */}
-          <div
-            className="hero-badges-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-              gap: '12px',
-              maxWidth: '820px',
-              margin: '0 auto'
-            }}
-          >
-            {[
-              { title: 'Established 2009', desc: '15+ Years Excellence' },
-              { title: '15,000+ Active Units', desc: 'Running Worldwide' },
-              { title: '32-Bit Microprocessor', desc: 'Spike & Phase Protected' },
-              { title: 'Direct Field Support', desc: 'Rapid Diagnostics' }
-            ].map((badge, i) => (
-              <div
-                key={i}
-                style={{
-                  padding: '12px 14px',
-                  backgroundColor: 'rgba(18, 20, 15, 0.68)',
-                  backdropFilter: 'blur(10px)',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(255, 255, 255, 0.16)',
-                  textAlign: 'center'
-                }}
-              >
-                <div style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.86rem', marginBottom: '2px' }}>
-                  {badge.title}
-                </div>
-                <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.74rem' }}>
-                  {badge.desc}
-                </div>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
 
       <style>{`
-        @media (max-width: 850px) {
-          .hero-badges-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
         @media (max-width: 640px) {
           #home {
             min-height: 100svh !important;
