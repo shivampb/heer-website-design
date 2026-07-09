@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import OurMission from './components/OurMission';
@@ -11,6 +14,8 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import SelfCheckModal from './components/SelfCheckModal';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function AboutUsPage({ onBookClick }) {
   return (
@@ -88,6 +93,31 @@ export default function App() {
   const [selfCheckModalOpen, setSelfCheckModalOpen] = useState(false);
   const [initialTherapy, setInitialTherapy] = useState('Microprocessor Lift Controller (32-Bit Closed Loop)');
   const [initialSpecialist, setInitialSpecialist] = useState('Senior R&D Lead Specialist');
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      touchMultiplier: 2
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    const tickerCallback = (time) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(tickerCallback);
+    gsap.ticker.fps(60);
+
+    return () => {
+      gsap.ticker.remove(tickerCallback);
+      lenis.destroy();
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
