@@ -1,13 +1,53 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { WELLNESS_DATA } from '../data/wellnessData';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function WhyChooseUs({ onBookClick }) {
   const { image } = WELLNESS_DATA.whyChooseUs;
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.spec-row',
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          stagger: 0.14,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%'
+          }
+        }
+      );
+
+      gsap.fromTo('.why-img-gsap',
+        { scale: 1.14, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.5,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.why-us-image-box',
+            start: 'top 80%'
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="why-us" style={{ backgroundColor: '#fcfbf8', padding: '100px 0', borderTop: '1px solid rgba(0,0,0,0.06)', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+    <section id="why-us" ref={sectionRef} style={{ backgroundColor: '#fcfbf8', padding: '100px 0', borderTop: '1px solid rgba(0,0,0,0.06)', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
       <div className="container">
 
         {/* Main Split Editorial Layout */}
@@ -135,6 +175,7 @@ export default function WhyChooseUs({ onBookClick }) {
             }}
           >
             <img
+              className="why-img-gsap"
               src={image}
               alt="Why Choose Heer Technology & Control"
               style={{

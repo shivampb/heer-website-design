@@ -1,14 +1,47 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { WELLNESS_DATA } from '../data/wellnessData';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero({ onStartJourney }) {
   const { tagline, subtitle } = WELLNESS_DATA.hero;
+  const heroRef = useRef(null);
+  const videoRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Entry timeline
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      
+      tl.fromTo(videoRef.current, { scale: 1.15 }, { scale: 1, duration: 2.2 })
+        .fromTo('.hero-anim-item', { y: 45, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, stagger: 0.16 }, '-=1.6');
+
+      // Scroll parallax
+      gsap.to(videoRef.current, {
+        yPercent: 18,
+        scale: 1.08,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
       id="home"
+      ref={heroRef}
       style={{
         position: 'relative',
         width: 'calc(100% - 16px)',
@@ -26,6 +59,7 @@ export default function Hero({ onStartJourney }) {
     >
       {/* Background Video Covering Entire Hero Section */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
@@ -57,14 +91,11 @@ export default function Hero({ onStartJourney }) {
       />
 
       {/* Centered Typography Block */}
-      <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '840px' }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-        >
+      <div className="container" ref={contentRef} style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '840px' }}>
+        <div>
           {/* Tagline Pill */}
           <div
+            className="hero-anim-item"
             style={{
               display: 'inline-block',
               padding: '6px 16px',
@@ -84,6 +115,7 @@ export default function Hero({ onStartJourney }) {
 
           {/* Refined Centered Heading */}
           <h1
+            className="hero-anim-item"
             style={{
               fontSize: 'clamp(2.2rem, 3.8vw, 3.6rem)',
               fontWeight: 400,
@@ -102,6 +134,7 @@ export default function Hero({ onStartJourney }) {
 
           {/* Subtitle */}
           <p
+            className="hero-anim-item"
             style={{
               fontSize: '1.02rem',
               color: 'rgba(255, 255, 255, 0.88)',
@@ -115,7 +148,7 @@ export default function Hero({ onStartJourney }) {
           </p>
 
           {/* Centered Action Buttons with 6px Curve */}
-          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '44px' }} className="hero-buttons">
+          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '44px' }} className="hero-buttons hero-anim-item">
             <button
               onClick={onStartJourney}
               className="btn-primary hero-btn"
@@ -153,7 +186,7 @@ export default function Hero({ onStartJourney }) {
               <span>Why Choose Heer</span>
             </button>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <style>{`

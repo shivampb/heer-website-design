@@ -1,7 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { WELLNESS_DATA } from '../data/wellnessData';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Word({ children, progress, range, isBold }) {
   const opacity = useTransform(progress, range, [0.15, 1]);
@@ -25,6 +29,30 @@ export default function OurMission({ onMeetSpecialists }) {
   const { tag, headlineText, boldText, trailingText, gallery } = WELLNESS_DATA.philosophy;
   const [hoveredCard, setHoveredCard] = useState(null);
   const containerRef = useRef(null);
+  const sectionRef = useRef(null);
+  
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.philosophy-card-gsap', 
+        { y: 70, opacity: 0, rotateX: 12 }, 
+        { 
+          y: 0, 
+          opacity: 1, 
+          rotateX: 0, 
+          stagger: 0.18, 
+          duration: 1.15, 
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%'
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 0.85", "start 0.25"]
@@ -36,7 +64,7 @@ export default function OurMission({ onMeetSpecialists }) {
   const allWords = [...headlineWords, ...boldWords, ...trailingWords];
 
   return (
-    <section id="philosophy" className="section-padding" style={{ backgroundColor: 'var(--bg-primary)' }}>
+    <section id="philosophy" ref={sectionRef} className="section-padding" style={{ backgroundColor: 'var(--bg-primary)' }}>
       <div style={{ width: '100%', padding: '0 5px', margin: '0 auto', textAlign: 'center' }}>
         {/* Tag Pill */}
         <motion.div
@@ -120,6 +148,7 @@ export default function OurMission({ onMeetSpecialists }) {
               return (
                 <div
                   key={`${item.id}-${index}`}
+                  className="philosophy-card-gsap gallery-card"
                   onMouseEnter={() => setHoveredCard(index)}
                   onMouseLeave={() => setHoveredCard(null)}
                   style={{
@@ -135,7 +164,6 @@ export default function OurMission({ onMeetSpecialists }) {
                     transition: 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease',
                     border: isHovered ? '1px solid rgba(197, 216, 164, 0.65)' : '1px solid rgba(255,255,255,0.1)'
                   }}
-                  className="gallery-card"
                 >
                   {/* Background Image with Liquid Cubic Spring Zoom */}
                   <img
