@@ -211,16 +211,19 @@ export default function Testimonials() {
           </div>
 
           {/* Right Dual-Column Slow Marquee Carousel Grid */}
-          <div style={{
-            flex: '1.4 1 560px',
-            display: 'flex',
-            gap: '16px',
-            height: '660px',
-            overflow: 'hidden',
-            position: 'relative',
-            maskImage: 'linear-gradient(180deg, transparent 0%, black 8%, black 92%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, black 8%, black 92%, transparent 100%)'
-          }}>
+          <div
+            className="testimonials-right-grid"
+            style={{
+              flex: '1.4 1 560px',
+              display: 'flex',
+              gap: '16px',
+              height: '660px',
+              overflow: 'hidden',
+              position: 'relative',
+              maskImage: 'linear-gradient(180deg, transparent 0%, black 8%, black 92%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, black 8%, black 92%, transparent 100%)'
+            }}
+          >
             {/* Vertical Column 1 (Scrolling Up Slowly) */}
             <div className="col-scroll-up" style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
               {loopCol1.map((review, idx) => (
@@ -249,6 +252,27 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 850px) {
+          .col-scroll-down {
+            display: none !important;
+          }
+          .col-scroll-up {
+            width: 100% !important;
+            flex: 1 1 100% !important;
+          }
+          .testimonials-right-grid {
+            height: 460px !important;
+            width: 100% !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .testimonials-right-grid {
+            height: 420px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -41,14 +41,17 @@ export default function WhyChooseUs({ onBookClick }) {
               </h2>
 
               {/* Editorial Spec Grid / Project Details Table block */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-                gap: '24px',
-                borderTop: '1px solid #e0e0e0',
-                paddingTop: '20px',
-                marginBottom: '44px'
-              }}>
+              <div
+                className="spec-grid"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+                  gap: '24px',
+                  borderTop: '1px solid #e0e0e0',
+                  paddingTop: '20px',
+                  marginBottom: '44px'
+                }}
+              >
                 {/* Left Label */}
                 <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#111111' }}>
                   Engineering Specs
@@ -56,21 +59,21 @@ export default function WhyChooseUs({ onBookClick }) {
 
                 {/* Right Table Specifications */}
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #e6e6e6', marginBottom: '10px', gap: '16px' }}>
+                  <div className="spec-row" style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #e6e6e6', marginBottom: '10px', gap: '16px' }}>
                     <span style={{ color: '#777777', fontSize: '0.82rem', flexShrink: 0 }}>Category</span>
-                    <span style={{ fontWeight: 600, fontSize: '0.82rem', color: '#111111', textAlign: 'right' }}>Controller Cabinets & Touch COP/LOP Panels</span>
+                    <span className="spec-val" style={{ fontWeight: 600, fontSize: '0.82rem', color: '#111111', textAlign: 'right' }}>Controller Cabinets & Touch COP/LOP Panels</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #e6e6e6', marginBottom: '10px', gap: '16px' }}>
+                  <div className="spec-row" style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #e6e6e6', marginBottom: '10px', gap: '16px' }}>
                     <span style={{ color: '#777777', fontSize: '0.82rem', flexShrink: 0 }}>Installations</span>
-                    <span style={{ fontWeight: 600, fontSize: '0.82rem', color: '#111111', textAlign: 'right' }}>15,000+ Active Units Globally</span>
+                    <span className="spec-val" style={{ fontWeight: 600, fontSize: '0.82rem', color: '#111111', textAlign: 'right' }}>15,000+ Active Units Globally</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #e6e6e6', marginBottom: '10px', gap: '16px' }}>
+                  <div className="spec-row" style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #e6e6e6', marginBottom: '10px', gap: '16px' }}>
                     <span style={{ color: '#777777', fontSize: '0.82rem', flexShrink: 0 }}>Architecture</span>
-                    <span style={{ fontWeight: 600, fontSize: '0.82rem', color: '#111111', textAlign: 'right' }}>32-Bit Solid-State Logic & VVVF</span>
+                    <span className="spec-val" style={{ fontWeight: 600, fontSize: '0.82rem', color: '#111111', textAlign: 'right' }}>32-Bit Solid-State Logic & VVVF</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #e6e6e6', gap: '16px' }}>
+                  <div className="spec-row" style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '10px', borderBottom: '1px solid #e6e6e6', gap: '16px' }}>
                     <span style={{ color: '#777777', fontSize: '0.82rem', flexShrink: 0 }}>Support Model</span>
-                    <span style={{ fontWeight: 600, fontSize: '0.82rem', color: '#111111', textAlign: 'right' }}>Direct Engineering Schematics Desk</span>
+                    <span className="spec-val" style={{ fontWeight: 600, fontSize: '0.82rem', color: '#111111', textAlign: 'right' }}>Direct Engineering Schematics Desk</span>
                   </div>
                 </div>
               </div>
@@ -92,23 +95,24 @@ export default function WhyChooseUs({ onBookClick }) {
               <div>
                 <button
                   onClick={onBookClick}
+                  className="btn-primary"
                   style={{
-                    padding: '11px 22px',
+                    padding: '13px 26px',
                     backgroundColor: '#111111',
                     color: '#ffffff',
                     border: 'none',
-                    borderRadius: '4px',
-                    fontSize: '0.85rem',
+                    borderRadius: '6px',
+                    fontSize: '0.92rem',
                     fontWeight: 600,
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '8px',
+                    gap: '10px',
                     cursor: 'pointer',
                     boxShadow: '0 4px 14px rgba(0,0,0,0.12)'
                   }}
                 >
-                  <span>Request Technical Consultation</span>
-                  <ArrowRight size={15} />
+                  <span>Schedule Consultation</span>
+                  <ArrowRight size={14} />
                 </button>
               </div>
             </div>
@@ -120,6 +124,7 @@ export default function WhyChooseUs({ onBookClick }) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
+            className="why-us-image-box"
             style={{
               flex: '1 1 460px',
               position: 'relative',
@@ -148,6 +153,34 @@ export default function WhyChooseUs({ onBookClick }) {
           </motion.div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 850px) {
+          .why-us-image-box {
+            min-height: 380px !important;
+            height: 380px !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .spec-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
+          .spec-row {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 4px !important;
+          }
+          .spec-val {
+            text-align: left !important;
+            font-size: 0.9rem !important;
+          }
+          .why-us-image-box {
+            min-height: 300px !important;
+            height: 300px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -46,6 +46,7 @@ export default function FAQ() {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
+                  className="faq-btn"
                   style={{
                     width: '100%',
                     padding: '24px 28px',
@@ -70,7 +71,8 @@ export default function FAQ() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     transition: 'transform 0.3s ease, background-color 0.3s ease',
-                    transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+                    transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    flexShrink: 0
                   }}>
                     <ChevronDown size={18} color="var(--accent-olive)" />
                   </div>
@@ -85,7 +87,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
                       style={{ overflow: 'hidden' }}
                     >
-                      <div style={{
+                      <div className="faq-answer" style={{
                         padding: '0 28px 26px 28px',
                         fontSize: '0.98rem',
                         color: 'var(--text-muted)',
@@ -103,6 +105,21 @@ export default function FAQ() {
           })}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .faq-btn {
+            padding: 18px 16px !important;
+          }
+          .faq-btn span {
+            font-size: 1.02rem !important;
+          }
+          .faq-answer {
+            padding: 0 16px 20px 16px !important;
+            font-size: 0.92rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

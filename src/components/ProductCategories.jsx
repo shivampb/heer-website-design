@@ -30,6 +30,7 @@ function CategoryCard({ category, index, hoveredIndex, setHoveredIndex, onLearnM
         border: isHovered ? '1px solid rgba(197, 216, 164, 0.6)' : '1px solid rgba(255,255,255,0.15)',
         minWidth: '220px'
       }}
+      className="category-card"
     >
       {/* Background Photography with Liquid Spring Zoom */}
       <img
@@ -199,6 +200,28 @@ export default function ProductCategories({ onBookSpecialist }) {
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 850px) {
+          .category-card {
+            flex: 1 1 100% !important;
+            width: 100% !important;
+            min-width: 100% !important;
+            height: 340px !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .category-card {
+            height: 300px !important;
+          }
+          .category-card h3 {
+            font-size: 1.25rem !important;
+          }
+          .category-card p {
+            font-size: 0.84rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

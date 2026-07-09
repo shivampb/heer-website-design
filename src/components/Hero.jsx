@@ -114,25 +114,108 @@ export default function Hero({ onStartJourney }) {
             {subtitle}
           </p>
 
-          {/* Centered Action Button with 6px Curve */}
-          <button
-            onClick={onStartJourney}
-            className="btn-primary"
+          {/* Centered Action Buttons with 6px Curve */}
+          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '44px' }} className="hero-buttons">
+            <button
+              onClick={onStartJourney}
+              className="btn-primary hero-btn"
+              style={{
+                padding: '13px 30px',
+                fontSize: '0.94rem',
+                borderRadius: '6px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                boxShadow: '0 12px 32px rgba(0,0,0,0.35)'
+              }}
+            >
+              <span>Explore Systems</span>
+              <ArrowRight size={15} />
+            </button>
+            <button
+              onClick={() => {
+                const el = document.getElementById('why-us');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="btn-glass hero-btn"
+              style={{
+                padding: '13px 28px',
+                fontSize: '0.94rem',
+                borderRadius: '6px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                background: 'rgba(255,255,255,0.12)',
+                color: '#ffffff',
+                border: '1px solid rgba(255,255,255,0.3)'
+              }}
+            >
+              <span>Why Choose Heer</span>
+            </button>
+          </div>
+
+          {/* 4 Key Pillars in Responsive 2x2 Grid on Mobile / Inline on Desktop */}
+          <div
+            className="hero-badges-grid"
             style={{
-              padding: '12px 28px',
-              fontSize: '0.94rem',
-              borderRadius: '6px',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              boxShadow: '0 12px 32px rgba(0,0,0,0.35)'
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+              gap: '12px',
+              maxWidth: '820px',
+              margin: '0 auto'
             }}
           >
-            <span>Explore Systems</span>
-            <ArrowRight size={15} />
-          </button>
+            {[
+              { title: 'Established 2009', desc: '15+ Years Excellence' },
+              { title: '15,000+ Active Units', desc: 'Running Worldwide' },
+              { title: '32-Bit Microprocessor', desc: 'Spike & Phase Protected' },
+              { title: 'Direct Field Support', desc: 'Rapid Diagnostics' }
+            ].map((badge, i) => (
+              <div
+                key={i}
+                style={{
+                  padding: '12px 14px',
+                  backgroundColor: 'rgba(18, 20, 15, 0.68)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '10px',
+                  border: '1px solid rgba(255, 255, 255, 0.16)',
+                  textAlign: 'center'
+                }}
+              >
+                <div style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.86rem', marginBottom: '2px' }}>
+                  {badge.title}
+                </div>
+                <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.74rem' }}>
+                  {badge.desc}
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
+
+      <style>{`
+        @media (max-width: 850px) {
+          .hero-badges-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        @media (max-width: 640px) {
+          #home {
+            min-height: 100svh !important;
+            height: auto !important;
+            padding: 80px 0 40px 0 !important;
+          }
+          .hero-btn {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+          .hero-buttons {
+            flex-direction: column !important;
+            width: 100% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -146,13 +146,16 @@ export default function Footer({ onBookClick }) {
         overflow: 'hidden'
       }}>
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '40px',
-            marginBottom: '48px',
-            alignItems: 'flex-start'
-          }}>
+          <div
+            className="footer-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: '40px',
+              marginBottom: '48px',
+              alignItems: 'flex-start'
+            }}
+          >
             {/* Brand Minimalist Column (No long company description) */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
@@ -296,6 +299,15 @@ export default function Footer({ onBookClick }) {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 }

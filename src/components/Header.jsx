@@ -116,7 +116,7 @@ export default function Header({ onBookClick, onSelfCheckClick }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button
             onClick={onSelfCheckClick}
-            className="btn-glass"
+            className="btn-glass hide-mobile"
             style={{
               padding: '10px 18px',
               fontSize: '0.86rem',
@@ -133,7 +133,7 @@ export default function Header({ onBookClick, onSelfCheckClick }) {
 
           <button
             onClick={onBookClick}
-            className="btn-primary"
+            className="btn-primary hide-phone"
             style={{ padding: '10px 20px', fontSize: '0.86rem', borderRadius: '6px' }}
           >
             <span>Request Quote</span>
@@ -143,7 +143,7 @@ export default function Header({ onBookClick, onSelfCheckClick }) {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="mobile-toggle"
+            className="mobile-toggle mobile-toggle-btn"
             style={{
               background: 'none',
               border: 'none',
@@ -168,14 +168,14 @@ export default function Header({ onBookClick, onSelfCheckClick }) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             style={{
-              backgroundColor: 'var(--bg-card)',
+              backgroundColor: '#ffffff',
               borderBottom: '1px solid var(--border-color)',
               overflow: 'hidden',
-              padding: '20px 28px',
+              padding: '24px 20px',
               boxShadow: 'var(--shadow-lg)'
             }}
           >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {[
                 { label: 'About Us', id: 'about-us' },
                 { label: 'Contact Us', id: 'contact-us' },
@@ -192,18 +192,22 @@ export default function Header({ onBookClick, onSelfCheckClick }) {
                     textAlign: 'left',
                     background: 'none',
                     border: 'none',
-                    fontSize: '1.05rem',
+                    fontSize: '1.1rem',
                     fontWeight: 600,
                     color: 'var(--text-main)',
-                    padding: '8px 0',
-                    borderBottom: '1px solid rgba(0,0,0,0.04)'
+                    padding: '12px 4px',
+                    borderBottom: '1px solid rgba(0,0,0,0.06)',
+                    cursor: 'pointer'
                   }}
                 >
                   {item.label}
                 </button>
               ))}
-              <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
-                <button onClick={() => { setMobileMenuOpen(false); onBookClick(); }} className="btn-primary" style={{ width: '100%', justifyContent: 'center', borderRadius: '6px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '14px' }}>
+                <button onClick={() => { setMobileMenuOpen(false); onSelfCheckClick(); }} className="btn-glass" style={{ width: '100%', justifyContent: 'center', borderRadius: '8px', padding: '13px' }}>
+                  <Sparkles size={16} /> Interactive Diagnostics Check
+                </button>
+                <button onClick={() => { setMobileMenuOpen(false); onBookClick(); }} className="btn-primary" style={{ width: '100%', justifyContent: 'center', borderRadius: '8px', padding: '13px' }}>
                   <Calendar size={16} /> Request Quote & Consultation
                 </button>
               </div>
@@ -215,8 +219,11 @@ export default function Header({ onBookClick, onSelfCheckClick }) {
       <style>{`
         @media (max-width: 900px) {
           .desktop-nav { display: none !important; }
-          .mobile-toggle-btn { display: block !important; }
+          .mobile-toggle, .mobile-toggle-btn { display: block !important; }
           .hide-mobile { display: none !important; }
+        }
+        @media (max-width: 640px) {
+          .hide-phone { display: none !important; }
         }
       `}</style>
     </header>

@@ -28,12 +28,15 @@ export default function BookingModal({ isOpen, onClose, initialSpecialist, initi
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.94, y: 24 }}
         onClick={(e) => e.stopPropagation()}
+        className="booking-modal-box"
         style={{
           backgroundColor: '#ffffff',
           borderRadius: '10px',
           padding: '40px',
           maxWidth: '540px',
-          width: '100%',
+          width: 'calc(100% - 24px)',
+          maxHeight: '90vh',
+          overflowY: 'auto',
           position: 'relative',
           boxShadow: 'var(--shadow-lg)'
         }}
@@ -255,6 +258,15 @@ export default function BookingModal({ isOpen, onClose, initialSpecialist, initi
           </div>
         )}
       </motion.div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .booking-modal-box {
+            padding: 24px 18px !important;
+            width: calc(100% - 16px) !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

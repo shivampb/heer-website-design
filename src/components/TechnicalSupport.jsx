@@ -94,6 +94,7 @@ export default function TechnicalSupport() {
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            className="support-video-box"
             style={{
               position: 'relative',
               height: 'clamp(480px, 65vh, 720px)',
@@ -140,12 +141,15 @@ export default function TechnicalSupport() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 onClick={(e) => e.stopPropagation()}
+                className="support-modal"
                 style={{
                   backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   padding: '40px',
                   maxWidth: '480px',
-                  width: '100%',
+                  width: 'calc(100% - 24px)',
+                  maxHeight: '90vh',
+                  overflowY: 'auto',
                   textAlign: 'center',
                   position: 'relative',
                   boxShadow: 'var(--shadow-lg)'
@@ -244,6 +248,25 @@ export default function TechnicalSupport() {
         )}
       </AnimatePresence>
       </div>
+
+      <style>{`
+        @media (max-width: 850px) {
+          .support-video-box {
+            height: 340px !important;
+            min-height: 340px !important;
+            flex: 1 1 100% !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .support-video-box {
+            height: 280px !important;
+            min-height: 280px !important;
+          }
+          .support-modal {
+            padding: 24px 18px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

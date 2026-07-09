@@ -99,6 +99,12 @@ export default function OurMission({ onMeetSpecialists }) {
               flex: 0 0 270px !important;
               height: 340px !important;
             }
+            .gallery-card h4 {
+              font-size: 1.12rem !important;
+            }
+            .gallery-card p {
+              font-size: 0.84rem !important;
+            }
           }
         `}</style>
 
@@ -147,11 +153,11 @@ export default function OurMission({ onMeetSpecialists }) {
                     }}
                   />
 
-                  {/* Subtle Bottom-Only Vignette for Text Contrast (No Black Overlay over Photo) */}
+                  {/* High-Contrast Bottom Vignette for Perfect Text Legibility */}
                   <div style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(180deg, rgba(0,0,0,0) 68%, rgba(0,0,0,0.48) 100%)',
+                    background: 'linear-gradient(180deg, rgba(0,0,0,0) 48%, rgba(0,0,0,0.85) 100%)',
                     transition: 'background 0.4s ease'
                   }} />
 
