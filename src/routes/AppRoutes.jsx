@@ -17,24 +17,33 @@ function PageLoader() {
     <div style={{
       minHeight: '100vh',
       width: '100vw',
+      backgroundColor: '#ffffff',
+      padding: '110px clamp(24px, 6vw, 100px) 60px clamp(24px, 6vw, 100px)',
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#ffffff'
+      flexDirection: 'column',
+      gap: '40px'
     }}>
-      <div style={{
-        width: '38px',
-        height: '38px',
-        borderRadius: '50%',
-        border: '3px solid rgba(0,0,0,0.08)',
-        borderTopColor: '#21789c',
-        animation: 'heerSpin 0.75s linear infinite'
-      }} />
       <style>{`
-        @keyframes heerSpin {
-          to { transform: rotate(360deg); }
+        @keyframes skeletonShimmer {
+          0% { background-position: -800px 0; }
+          100% { background-position: 800px 0; }
+        }
+        .skeleton-shimmer {
+          background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+          background-size: 1600px 100%;
+          animation: skeletonShimmer 1.4s ease-in-out infinite;
+          border-radius: 8px;
         }
       `}</style>
+      {/* Top Label Skeleton */}
+      <div className="skeleton-shimmer" style={{ width: '220px', height: '16px', borderRadius: '4px' }} />
+      {/* Big Headline Skeleton */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '900px' }}>
+        <div className="skeleton-shimmer" style={{ width: '95%', height: '48px', borderRadius: '6px' }} />
+        <div className="skeleton-shimmer" style={{ width: '75%', height: '48px', borderRadius: '6px' }} />
+      </div>
+      {/* Hero Panoramic Image Skeleton */}
+      <div className="skeleton-shimmer" style={{ width: '100%', height: 'clamp(360px, 55vh, 640px)', borderRadius: '14px', marginTop: '12px' }} />
     </div>
   );
 }

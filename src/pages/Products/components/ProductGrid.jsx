@@ -1,269 +1,210 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Sparkles, Filter, ChevronRight, Search, Layers, Grid, SlidersHorizontal, X } from 'lucide-react';
 
 export const categories = [
   { id: 'all', label: 'All Products' },
-  { id: 'style', label: 'Style & Fixtures' },
-  { id: 'control', label: 'Control Systems' },
-  { id: 'security', label: 'Security & Sensors' },
-  { id: 'doors', label: 'Doors Control' },
-  { id: 'communication', label: 'Communication' }
+  { id: 'main-boards', label: 'Main Boards' },
+  { id: 'control-panels', label: 'Control Panels' },
+  { id: 'push-buttons', label: 'Push Buttons' },
+  { id: 'displays', label: 'Displays' },
+  { id: 'other-products', label: 'Other Products' }
 ];
 
 export const allProducts = [
+  // MAIN BOARDS
   {
     id: 'p1',
-    code: 'HEER-FIX-01',
-    title: 'Obsidian Glass Touch COP Panel',
-    category: 'style',
-    subCategory: 'Fixtures',
-    spec: 'Tempered Glass | Gold Rim | Micro-Touch',
-    price: '$1,450',
-    image: '/products/PXL_20260610_125817426.jpg'
-  },
-  {
-    id: 'p2',
-    code: 'HEER-FIX-02',
-    title: 'Champagne Gold Landing LOP Array',
-    category: 'style',
-    subCategory: 'Fixtures',
-    spec: 'Multi-Floor Matrix | High Contrast LED',
-    price: '$620',
-    image: '/products/PXL_20260617_060017914.jpg'
-  },
-  {
-    id: 'p3',
-    code: 'HEER-DIS-01',
-    title: 'High-Contrast OLED Floor Display',
-    category: 'style',
-    subCategory: 'Display',
-    spec: '7-Inch IPS | Custom Telemetry Graphics',
-    price: '$340',
-    image: '/products/PXL_20260617_060025536.jpg'
-  },
-  {
-    id: 'p4',
-    code: 'HEER-BTN-01',
-    title: 'Micro-Stroke Stainless Push Buttons',
-    category: 'style',
-    subCategory: 'Push buttons',
-    spec: 'Tactile Click Feedback | Braille Embedded',
-    price: '$120',
-    image: '/products/IMG-20260523-WA0053.jpg'
-  },
-  {
-    id: 'p5',
-    code: 'HEER-FIX-ACC',
-    title: 'Braille & Audio Announcer Accessory',
-    category: 'style',
-    subCategory: 'Accessories',
-    spec: 'Multi-Language Voice | High Clarity Speaker',
-    price: '$290',
-    image: '/products/IMG-20260523-WA0054.jpg'
-  },
-  {
-    id: 'p6',
     code: 'HEER-CTRL-32',
     title: '32-Bit Microprocessor Controller Cabinet',
-    category: 'control',
-    subCategory: 'Control boards',
-    spec: 'Dual Core | Zero Jerk Acceleration | VVVF',
+    category: 'main-boards',
+    subCategory: 'HEER-CTRL-32',
+    spec: 'Dual Core | Zero Jerk Acceleration | VVVF Vector Control',
     price: '$4,800',
     image: '/products/PXL_20260703_123618016.jpg'
   },
   {
-    id: 'p7',
+    id: 'p2',
     code: 'HEER-SER-01',
     title: 'Car Top Serial Inspection Board',
-    category: 'control',
-    subCategory: 'Car serial boards',
-    spec: 'CAN-Bus High Speed | Plug & Play Harness',
+    category: 'main-boards',
+    subCategory: 'HEER-SER-01',
+    spec: 'CAN-Bus High Speed | Plug & Play Harness Matrix',
     price: '$890',
     image: '/products/PXL_20260703_123745971.jpg'
   },
   {
-    id: 'p8',
+    id: 'p3',
     code: 'HEER-SER-02',
-    title: 'Landing Serial Communication Node',
-    category: 'control',
-    subCategory: 'Landing serial boards',
-    spec: 'Low-Voltage Telemetry Hub | Shielded Ports',
+    title: 'Landing Serial Communication Node Hub',
+    category: 'main-boards',
+    subCategory: 'HEER-SER-02',
+    spec: 'Low-Voltage Telemetry Hub | Shielded RS485 Ports',
     price: '$450',
     image: '/products/1760038432879.jpg'
   },
   {
-    id: 'p9',
+    id: 'p4',
     code: 'HEER-INV-01',
     title: 'Integrated VVVF Vector Drive & ARD Unit',
-    category: 'control',
-    subCategory: 'Inverter and emergency rescue',
-    spec: 'Direct Torque Control | Automatic Rescue Power',
+    category: 'main-boards',
+    subCategory: 'HEER-INV-01',
+    spec: 'Direct Torque Control | Automatic Rescue Power Backup',
     price: '$3,200',
     image: '/products/PXL_20250618_145429848.jpg'
   },
   {
-    id: 'p10',
-    code: 'HEER-CTRL-ACC',
-    title: 'Spike Protection Relay Array',
-    category: 'control',
-    subCategory: 'Accessories',
-    spec: 'Multi-Stage Surge Protection | Fast Trip Breaker',
-    price: '$310',
-    image: '/products/IMG-20260523-WA0056.jpg'
+    id: 'p5',
+    code: 'HEER-DEST-01',
+    title: 'Multi-Tower Destination Control Hub',
+    category: 'main-boards',
+    subCategory: 'HEER-DEST-01',
+    spec: 'AI Passenger Routing Logic | 64-Floor Allocation Hub',
+    price: '$3,800',
+    image: '/products/1782653245464.png'
+  },
+
+  // CONTROL PANELS
+  {
+    id: 'p6',
+    code: 'HEER-FIX-01',
+    title: 'Obsidian Glass Touch COP Panel',
+    category: 'control-panels',
+    subCategory: 'HEER-FIX-01',
+    spec: 'Tempered Glass | Gold Rim | High-Speed Micro-Touch',
+    price: '$1,450',
+    image: '/products/PXL_20260610_125817426.jpg'
   },
   {
+    id: 'p7',
+    code: 'HEER-FIX-02',
+    title: 'Champagne Gold Landing LOP Array',
+    category: 'control-panels',
+    subCategory: 'HEER-FIX-02',
+    spec: 'Multi-Floor Matrix | High Contrast LED Digital Arrow',
+    price: '$620',
+    image: '/products/PXL_20260617_060017914.jpg'
+  },
+  {
+    id: 'p8',
+    code: 'HEER-KEY-01',
+    title: 'Direct Touch Diagnostics Keypad',
+    category: 'control-panels',
+    subCategory: 'HEER-KEY-01',
+    spec: 'Handheld Parameter Programmer | High-Contrast Readout',
+    price: '$240',
+    image: '/products/1782654258745.png'
+  },
+
+  // PUSH BUTTONS
+  {
+    id: 'p9',
+    code: 'HEER-BTN-01',
+    title: 'Micro-Stroke Stainless Push Buttons',
+    category: 'push-buttons',
+    subCategory: 'HEER-BTN-01',
+    spec: 'Tactile Click Feedback | Braille Embedded | LED Ring',
+    price: '$120',
+    image: '/products/IMG-20260523-WA0053.jpg'
+  },
+  {
+    id: 'p10',
+    code: 'HEER-FIX-ACC',
+    title: 'Braille & Audio Announcer Accessory',
+    category: 'push-buttons',
+    subCategory: 'HEER-FIX-ACC',
+    spec: 'Multi-Language Voice | High Clarity Speaker Chime Hub',
+    price: '$290',
+    image: '/products/IMG-20260523-WA0054.jpg'
+  },
+
+  // DISPLAYS
+  {
     id: 'p11',
+    code: 'HEER-DIS-01',
+    title: 'High-Contrast OLED Floor Display',
+    category: 'displays',
+    subCategory: 'HEER-DIS-01',
+    spec: '7-Inch IPS Screen | Custom Telemetry & Weather Graphics',
+    price: '$340',
+    image: '/products/PXL_20260617_060025536.jpg'
+  },
+  {
+    id: 'p12',
     code: 'HEER-APP-01',
     title: 'Heer Smart System Control App Gateway',
-    category: 'control',
-    subCategory: 'System control app',
+    category: 'displays',
+    subCategory: 'HEER-APP-01',
     spec: 'Bluetooth & WiFi Diagnostic Interface Dongle',
     price: '$750',
     image: '/products/1782586074854.png'
   },
-  {
-    id: 'p12',
-    code: 'HEER-DEST-01',
-    title: 'Multi-Tower Destination Control Hub',
-    category: 'control',
-    subCategory: 'Destination control',
-    spec: 'AI Traffic Dispatching | Peak Hour Optimization',
-    price: '$6,500',
-    image: '/products/PXL_20250829_070702553~2.jpg'
-  },
+
+  // OTHER PRODUCTS
   {
     id: 'p13',
-    code: 'HEER-SEC-180',
-    title: 'Infrared 180-Beam Light Curtain Array',
-    category: 'security',
-    subCategory: 'Light curtains',
-    spec: '10mm Detection Grid | Sun/Dust Resistant Array',
-    price: '$680',
-    image: '/products/1782586642582.png'
+    code: 'CL24',
+    title: 'Spike Protection & Safety Relay Array (CL24)',
+    category: 'other-products',
+    subCategory: 'CL24',
+    spec: 'Multi-Stage Surge Protection | 24V Line Fast Trip Breaker',
+    price: '$310',
+    image: '/products/IMG-20260523-WA0056.jpg'
   },
   {
     id: 'p14',
-    code: 'HEER-SEC-EN81',
-    title: 'EN81-20 Certified Safety Edge Curtains',
-    category: 'security',
-    subCategory: 'EN81 Light curtains',
-    spec: 'Full European Compliance | Instant Door Reverse',
-    price: '$820',
-    image: '/products/1782587711453.png'
-  },
-  {
-    id: 'p15',
-    code: 'HEER-SEC-3D',
-    title: '3D Volumetric Sensor Kit',
-    category: 'security',
-    subCategory: '3D Sensor Kit',
-    spec: 'Approaching Passenger Radar | Touchless Door Hold',
-    price: '$1,150',
-    image: '/products/1782588403324.png'
-  },
-  {
-    id: 'p16',
-    code: 'HEER-DRV-01',
-    title: 'Permanent Magnet Door Drive Motor',
-    category: 'doors',
-    subCategory: 'Door drive',
-    spec: 'Whisper Quiet Operation | Vector Closed Loop',
-    price: '$1,350',
-    image: '/products/PXL_20250829_071044956~2.jpg'
-  },
-  {
-    id: 'p17',
-    code: 'HEER-KEY-01',
-    title: 'Direct Touch Diagnostics Keypad',
-    category: 'doors',
-    subCategory: 'Keypads',
-    spec: 'Handheld Parameter Programmer | LCD Readout',
-    price: '$240',
-    image: '/products/1782654258745.png'
-  },
-  {
-    id: 'p18',
-    code: 'HEER-MTR-01',
-    title: 'High-Torque Synchronous Door Motor',
-    category: 'doors',
-    subCategory: 'Motors',
-    spec: 'Heavy Duty Commercial Grade | Low Thermal Heat',
-    price: '$920',
-    image: '/products/PXL_20250829_071143333~2.jpg'
-  },
-  {
-    id: 'p19',
-    code: 'HEER-APP-DRV',
-    title: 'Bluetooth Door Parameter App Dongle',
-    category: 'doors',
-    subCategory: 'Door drive app',
-    spec: 'Instant Phone Tuning Curve Adjustments',
-    price: '$190',
-    image: '/products/1783175256133.png'
-  },
-  {
-    id: 'p20',
-    code: 'HEER-DRV-ACC',
-    title: 'Door Encoder & Tensioner Kit',
-    category: 'doors',
-    subCategory: 'Accessories',
-    spec: 'Precision Optical Pulse Encoder & Pulley',
-    price: '$160',
-    image: '/products/1783269412408.png'
-  },
-  {
-    id: 'p21',
-    code: 'HEER-COMM-IOT',
-    title: 'Real-Time Cloud Supervision IoT Gateway',
-    category: 'communication',
-    subCategory: 'Cloud based supervision',
-    spec: '24/7 Cellular Telemetry | Predictive Diagnostics',
-    price: '$1,850',
-    image: '/products/PXL_20250829_075537037~2.jpg'
-  },
-  {
-    id: 'p22',
-    code: 'HEER-COMM-HUB',
-    title: 'Emergency Intercom & CAN-Bus Hub',
-    category: 'communication',
-    subCategory: 'Accessories',
-    spec: '3-Way Emergency Audio | Battery Backup Line',
-    price: '$420',
-    image: '/products/1783270316824.png'
-  },
-  {
-    id: 'p23',
-    code: 'HEER-GSM-01',
-    title: 'Digital GSM & Intercom Emergency Communicator',
-    category: 'communication',
-    subCategory: 'Intercom & GSM units',
-    spec: 'HD Voice | Dual SIM Backup | Instant Dispatch Relay',
+    code: 'GSM105',
+    title: 'Digital GSM & Intercom Emergency Communicator (GSM105)',
+    category: 'other-products',
+    subCategory: 'GSM105',
+    spec: 'HD Voice | Dual SIM Backup | Instant Emergency Relay',
     price: '$580',
     image: '/products/1783401578792.png'
   },
   {
-    id: 'p24',
-    code: 'HEER-MON-01',
-    title: '24/7 Elevator Fleet Remote Monitoring Node',
-    category: 'communication',
-    subCategory: 'Remote monitoring',
-    spec: 'Predictive Maintenance AI | Secure API Dashboard Node',
-    price: '$1,250',
-    image: '/products/PXL_20250829_075540909~2.jpg'
+    id: 'p15',
+    code: 'SNV201',
+    title: 'Precision Optical Pulse Encoder & Tensioner Kit (SNV201)',
+    category: 'other-products',
+    subCategory: 'SNV201',
+    spec: 'High Accuracy Rotary Encoder | Vibration Damped Pulley',
+    price: '$160',
+    image: '/products/1783269412408.png'
+  },
+  {
+    id: 'p16',
+    code: 'HEER-DRV-01',
+    title: 'High-Torque Synchronous Door Motor & Drive',
+    category: 'other-products',
+    subCategory: 'HEER-DRV-01',
+    spec: 'Heavy Duty Commercial Grade | Ultra Low Thermal Heat',
+    price: '$920',
+    image: '/products/PXL_20250829_071143333~2.jpg'
+  },
+  {
+    id: 'p17',
+    code: 'HEER-COMM-IOT',
+    title: 'Real-Time Cloud Supervision IoT Gateway',
+    category: 'other-products',
+    subCategory: 'HEER-COMM-IOT',
+    spec: '24/7 Cellular Telemetry | Predictive Diagnostics Cloud Node',
+    price: '$1,850',
+    image: '/products/PXL_20250829_075537037~2.jpg'
   }
 ];
 
 export const categoryMap = {
   all: { id: 'all', label: 'All Products', subCategories: [] },
-  style: { id: 'style', label: 'Style & Fixtures', subCategories: ['All Style', 'Fixtures', 'Display', 'Push buttons', 'Accessories'] },
-  control: { id: 'control', label: 'Control Systems', subCategories: ['All Control', 'Control boards', 'Car serial boards', 'Landing serial boards', 'Inverter and emergency rescue', 'Accessories', 'System control app', 'Destination control'] },
-  security: { id: 'security', label: 'Security & Sensors', subCategories: ['All Security', 'Light curtains', 'EN81 Light curtains', '3D Sensor Kit'] },
-  doors: { id: 'doors', label: 'Doors Control', subCategories: ['All Doors Control', 'Door drive', 'Keypads', 'Motors', 'Door drive app', 'Accessories'] },
-  communication: { id: 'communication', label: 'Communication & IoT', subCategories: ['All Communication', 'Intercom & GSM units', 'Remote monitoring', 'Cloud based supervision', 'Accessories'] }
+  'main-boards': { id: 'main-boards', label: 'Main Boards', subCategories: ['All Main Boards', 'HEER-CTRL-32', 'HEER-SER-01', 'HEER-SER-02', 'HEER-INV-01', 'HEER-DEST-01'] },
+  'control-panels': { id: 'control-panels', label: 'Control Panels', subCategories: ['All Control Panels', 'HEER-FIX-01', 'HEER-FIX-02', 'HEER-KEY-01'] },
+  'push-buttons': { id: 'push-buttons', label: 'Push Buttons', subCategories: ['All Push Buttons', 'HEER-BTN-01', 'HEER-FIX-ACC'] },
+  displays: { id: 'displays', label: 'Displays', subCategories: ['All Displays', 'HEER-DIS-01', 'HEER-APP-01'] },
+  'other-products': { id: 'other-products', label: 'Other Products', subCategories: ['All Other Products', 'CL24', 'GSM105', 'SNV201', 'HEER-DRV-01', 'HEER-COMM-IOT'] }
 };
 
 export default function ProductGridPage({ selectedCategory = 'all', onSelectCategory, onProductClick, onBookClick }) {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
 
   const lowerSelected = (selectedCategory || 'all').toLowerCase();
@@ -315,6 +256,7 @@ export default function ProductGridPage({ selectedCategory = 'all', onSelectCate
       key={product.id}
       onClick={() => {
         if (onProductClick) onProductClick(product);
+        else navigate(`/product-detail/${product.code}`);
       }}
       className="gallery-card"
       style={{
@@ -398,6 +340,7 @@ export default function ProductGridPage({ selectedCategory = 'all', onSelectCate
           onClick={(e) => {
             e.stopPropagation();
             if (onProductClick) onProductClick(product);
+            else navigate(`/product-detail/${product.code}`);
           }}
           style={{
             padding: '8px 14px',
@@ -594,7 +537,13 @@ export default function ProductGridPage({ selectedCategory = 'all', onSelectCate
                                     if (subItem.startsWith('All ')) {
                                       onSelectCategory(cat.id);
                                     } else {
-                                      onSelectCategory(subItem);
+                                      const matchedProd = allProducts.find(p => p.code.toLowerCase() === subItem.toLowerCase());
+                                      if (matchedProd) {
+                                        if (onProductClick) onProductClick(matchedProd);
+                                        else navigate(`/product-detail/${matchedProd.code}`);
+                                      } else {
+                                        onSelectCategory(subItem);
+                                      }
                                     }
                                   }}
                                   style={{

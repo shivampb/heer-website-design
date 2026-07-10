@@ -389,21 +389,27 @@ export default function ContactUs() {
             )}
           </div>
 
-          {/* Right Column: High-Tech Vertical Image Card */}
+          {/* Right Column: High-Tech Architectural Controller Image Card */}
           <div style={{
             borderRadius: '22px',
             overflow: 'hidden',
             position: 'relative',
-            minHeight: '460px',
-            backgroundColor: '#1c1e21'
+            height: '100%',
+            maxHeight: '520px',
+            minHeight: '400px',
+            backgroundColor: '#1c1e21',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}>
             <img
-              src="/products/PXL_20260703_123955290.PORTRAIT.jpg"
+              src="/products/IMG-20250917-WA0073.jpg"
               alt="Heer Precision Controller Architecture & R&D Consultation"
               style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
+                objectPosition: 'center',
                 display: 'block'
               }}
             />

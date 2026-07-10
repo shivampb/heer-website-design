@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
-function CategoryCard({ category, index, hoveredIndex, setHoveredIndex, onLearnMore }) {
+function CategoryCard({ category, index, hoveredIndex, setHoveredIndex }) {
+  const navigate = useNavigate();
   const isHovered = hoveredIndex === index;
   const isAnyHovered = hoveredIndex !== null;
 
@@ -14,7 +16,7 @@ function CategoryCard({ category, index, hoveredIndex, setHoveredIndex, onLearnM
       transition={{ duration: 0.6, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
       onMouseEnter={() => setHoveredIndex(index)}
       onMouseLeave={() => setHoveredIndex(null)}
-      onClick={() => onLearnMore && onLearnMore(category.title)}
+      onClick={() => navigate(category.categoryId ? `/products/${category.categoryId}` : '/products')}
       style={{
         position: 'relative',
         height: '460px',
@@ -138,27 +140,31 @@ export default function ProductCategories({ onBookSpecialist }) {
   const categories = [
     {
       id: 1,
-      title: "Precision Controller Cabinets",
-      desc: "32-Bit multi-processor controller cabinets equipped with Heer phase failure relays and Spike transformers.",
-      image: "/products/PXL_20250829_071039783~2.jpg"
+      title: "MAIN BOARDS",
+      desc: "32-Bit closed-loop multi-processor elevator controller cabinets equipped with proprietary phase failure relays.",
+      image: "/products/controller-cabinet.jpg",
+      categoryId: "main-boards"
     },
     {
       id: 2,
-      title: "Touch Car Operating Panels (COP)",
-      desc: "Champagne gold & black glass car operating panels engineered with zero-jerk logic and touch buttons.",
-      image: "/products/PXL_20260610_125828141.jpg"
+      title: "CONTROL PANELS",
+      desc: "Tempered obsidian black & champagne gold touch COP & LOP interfaces engineered with zero-jerk logic.",
+      image: "/products/PXL_20250829_070627798.jpg",
+      categoryId: "control-panels"
     },
     {
       id: 3,
-      title: "Complete COP & LOP Arrays",
-      desc: "Matched sets of car operating panels and landing call boxes built for plug-and-play installation.",
-      image: "/products/PXL_20260610_125845955~2.jpg"
+      title: "PUSH BUTTONS",
+      desc: "Heavy-duty stainless steel and glass elevator push buttons built for high-traffic durability and LED illumination.",
+      image: "/products/touch-lop-button.jpg",
+      categoryId: "push-buttons"
     },
     {
       id: 4,
-      title: "Glass Landing Call Panels (LOP)",
-      desc: "Curved black glass touch landing panels with ultra-clear digital floor direction displays.",
-      image: "/products/PXL_20260629_084441890.jpg"
+      title: "DISPLAYS & OTHERS",
+      desc: "Curved black glass touch landing panels, digital floor direction screens, and IoT telemetry inspection boxes.",
+      image: "/products/glass-display-lop.jpg",
+      categoryId: "displays"
     }
   ];
 

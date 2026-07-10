@@ -24,7 +24,12 @@ export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [location.pathname]);
 
   useEffect(() => {
@@ -55,6 +60,7 @@ export default function App() {
       touchMultiplier: 2
     });
 
+    window.__lenis = lenis;
     lenis.on('scroll', ScrollTrigger.update);
 
     const tickerCallback = (time) => {
@@ -65,6 +71,7 @@ export default function App() {
     return () => {
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
+      delete window.__lenis;
     };
   }, []);
 
@@ -105,7 +112,7 @@ export default function App() {
   return (
     <div className="wellness-app">
       <CustomCursor />
-      {/* Interactive Scroll Progress Momentum Bar */}
+      {/* Interactive Scroll Progress Momentum Bar matching official Heer logo colors */}
       <motion.div
         style={{
           position: 'fixed',
@@ -113,11 +120,11 @@ export default function App() {
           left: 0,
           right: 0,
           height: '4px',
-          background: 'linear-gradient(90deg, #c5d8a4 0%, #1a1d17 100%)',
+          background: 'linear-gradient(90deg, #2185b0 0%, #3ac1f4 100%)',
           transformOrigin: '0%',
           scaleX,
           zIndex: 99999,
-          boxShadow: '0 2px 12px rgba(197, 216, 164, 0.45)'
+          boxShadow: '0 2px 14px rgba(33, 133, 176, 0.55)'
         }}
       />
 

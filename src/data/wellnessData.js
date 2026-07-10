@@ -15,39 +15,51 @@ export const WELLNESS_DATA = {
     gallery: [
       {
         id: 1,
-        title: "Microprocessor Precision",
-        image: "/products/EMEFR.jpg",
-        desc: "Advanced 32-bit & 8-bit core architecture with Heer phase relays and contactor precision."
+        title: "MAIN BOARDS",
+        subtitle: "32-Bit Closed-Loop Architecture",
+        image: "/products/controller-cabinet.jpg",
+        categoryId: "main-boards",
+        desc: "High-speed multi-processor elevator controller cabinets engineered with proprietary phase failure relays and zero-nuisance contactor logic."
       },
       {
         id: 2,
-        title: "Simple & Solid Engineering",
-        image: "/products/SYNMATIC.jpg",
-        desc: "Champagne gold Car Operating Panels with intuitive touch glass button layout."
+        title: "CONTROL PANELS",
+        subtitle: "Touch COP & LOP Arrays",
+        image: "/products/PXL_20250829_070627798.jpg",
+        categoryId: "control-panels",
+        desc: "Tempered obsidian black and champagne gold touch interfaces engineered for millimeter-perfect tactile response and luxury lobby harmony."
       },
       {
         id: 3,
-        title: "100% Supportable Architecture",
-        image: "/products/TOUCH_COP.jpg",
-        desc: "Complete matched sets of touch operating panels engineered for rapid plug-and-play installation."
+        title: "PUSH BUTTONS",
+        subtitle: "Tactile & LED Illumination",
+        image: "/products/touch-lop-button.jpg",
+        categoryId: "push-buttons",
+        desc: "Robust stainless steel and tempered glass elevator buttons built for high-traffic commercial durability and ultra-crisp LED illumination."
       },
       {
         id: 4,
-        title: "15,000+ Active Units",
-        image: "/products/LOP_BT.jpg",
-        desc: "Curved black glass touch landing call buttons proven in high-traffic vertical installations."
+        title: "DISPLAYS",
+        subtitle: "High-Definition Digital Indicators",
+        image: "/products/glass-display-lop.jpg",
+        categoryId: "displays",
+        desc: "Ultra-clear multi-segment and TFT LCD floor direction screens offering instantaneous elevator position feedback and direction arrows."
       },
       {
         id: 5,
-        title: "Real-Time Cloud Telemetry",
-        image: "/products/NEXUS.jpg",
-        desc: "Ultra-responsive glass call buttons featuring crisp digital direction indicators."
+        title: "OTHER PRODUCTS",
+        subtitle: "Inspection & Safety Accessories",
+        image: "/products/SYNMATIC.jpg",
+        categoryId: "other-products",
+        desc: "Specialized inspection boxes, magnetic sensors, limit switches, and IoT telemetry modules built for seamless plug-and-play integration."
       },
       {
         id: 6,
-        title: "Heavy-Duty Controller Cabinets",
-        image: "/products/controller-cabinet.jpg",
-        desc: "Spike transformers and industrial relay synchronization engineered for heavy operations."
+        title: "COMPLETE SYSTEMS",
+        subtitle: "Plug & Play Packages",
+        image: "/products/PXL_20260610_125845955~2.jpg",
+        categoryId: "all",
+        desc: "Matched sets of controller cabinets, car operating panels, landing call boxes, and wiring harnesses standardized across 15,000+ elevators."
       }
     ]
   },

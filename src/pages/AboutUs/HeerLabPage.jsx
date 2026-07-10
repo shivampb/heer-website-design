@@ -313,52 +313,6 @@ export default function HeerLabPage({ onBookClick }) {
         </div>
       </section>
 
-      {/* SECTION 4: MINIMALIST CTA / FOOTER TRANSITION */}
-      <section style={{ width: '100vw', padding: '120px clamp(24px, 6vw, 100px)', backgroundColor: '#111111', color: '#ffffff', textAlign: 'center' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <div style={{ fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '24px' }}>
-            Collaborate With Heer Lab
-          </div>
-          <h2 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)', fontWeight: 500, color: '#ffffff', letterSpacing: '-0.03em', lineHeight: 1.15, marginBottom: '32px' }}>
-            Need custom controller parameters or specialized interface validation for your next architectural project?
-          </h2>
-          <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: '48px', maxWidth: '640px', margin: '0 auto 48px auto' }}>
-            Our R&amp;D engineers are ready to evaluate complex lift specifications, run digital twin simulations, and deliver tailored hardware solutions.
-          </p>
-          <button
-            onClick={() => {
-              if (onBookClick) onBookClick();
-              else window.location.href = '/contact-us';
-            }}
-            style={{
-              backgroundColor: '#ffffff',
-              color: '#000000',
-              border: 'none',
-              borderRadius: '9999px',
-              padding: '18px 40px',
-              fontSize: '1rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              transition: 'transform 0.2s ease, background-color 0.2s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#f0f0f0';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#ffffff';
-              e.currentTarget.style.transform = 'translateY(0px)';
-            }}
-          >
-            <span>Request R&amp;D Consultation</span>
-            <ArrowUpRight size={18} />
-          </button>
-        </div>
-      </section>
-
     </div>
   );
 }

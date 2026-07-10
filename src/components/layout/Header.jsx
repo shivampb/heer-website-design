@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight, Sparkles, Calendar } from 'lucide-react';
 import { isLowRamDevice } from '../../utils/devicePerformance';
+import HeerLogo from '../common/HeerLogo';
 
 export default function Header({ onBookClick, onSelfCheckClick, onNavClick, activePage }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -77,7 +78,7 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
         left: 0,
         width: '100%',
         zIndex: 1000,
-        padding: isLightPage ? '14px 0' : '22px 0',
+        padding: isLightPage ? '4px 0' : '6px 0',
         transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
         backgroundColor: isLightPage ? (lowRam ? '#fcfaf6' : 'rgba(252, 250, 246, 0.96)') : 'transparent',
         backdropFilter: isLightPage && !lowRam ? 'blur(16px)' : 'none',
@@ -94,33 +95,9 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
             if (onNavClick) onNavClick('home');
             else navigate('/');
           }}
-          style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+          style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
         >
-          <div style={{
-            width: '32px',
-            height: '32px',
-            borderRadius: '6px',
-            backgroundColor: isLightPage ? '#000000' : '#ffffff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontWeight: 800,
-            color: isLightPage ? '#ffffff' : '#000000',
-            fontSize: '1.1rem',
-            transition: 'all 0.3s ease'
-          }}>
-            H
-          </div>
-          <span style={{ 
-            fontFamily: 'var(--font-heading)', 
-            fontSize: '1.25rem', 
-            fontWeight: 700, 
-            letterSpacing: '-0.03em',
-            color: isLightPage ? '#000000' : '#ffffff',
-            transition: 'color 0.3s ease'
-          }}>
-            Heer <span style={{ fontSize: '0.9rem', fontWeight: 400, color: isLightPage ? '#333333' : 'rgba(255, 255, 255, 0.85)' }}>Technology & Control</span>
-          </span>
+          <HeerLogo isLightPage={isLightPage} />
         </a>
 
         {/* Desktop Nav Links */}
@@ -132,7 +109,7 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
           ].map((item) => (
             <div 
               key={item.id} 
-              style={{ position: 'relative', paddingBottom: '10px', paddingTop: '10px' }}
+              style={{ position: 'relative', paddingBottom: '6px', paddingTop: '6px' }}
               onMouseEnter={() => {
                 if (item.id === 'products') { setMegaMenuOpen(true); setAboutMenuOpen(false); }
                 else if (item.id === 'about-us') { setAboutMenuOpen(true); setMegaMenuOpen(false); }
@@ -166,7 +143,7 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
                   background: 'none',
                   border: 'none',
                   color: isLightPage ? '#000000' : '#ffffff',
-                  fontSize: '0.95rem',
+                  fontSize: '0.94rem',
                   fontWeight: isLightPage || (item.id === 'products' && megaMenuOpen) || (item.id === 'about-us' && aboutMenuOpen) || (item.id === 'manufacturing' && location.pathname.includes('manufacturing')) ? 600 : 500,
                   cursor: 'pointer',
                   transition: 'color 0.2s ease',
@@ -190,7 +167,7 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
           <button
             onClick={onBookClick}
             className="btn-primary hide-phone"
-            style={{ padding: '10px 20px', fontSize: '0.86rem', borderRadius: '6px' }}
+            style={{ padding: '8px 16px', fontSize: '0.84rem', borderRadius: '6px' }}
           >
             <span>Request Quote</span>
             <ArrowRight size={14} />
@@ -228,7 +205,7 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
             onMouseLeave={() => setMegaMenuOpen(false)}
             style={{
               position: 'fixed',
-              top: isScrolled ? '65px' : '85px',
+              top: isLightPage ? '46px' : '50px',
               left: 0,
               right: 0,
               margin: '0 auto',
@@ -275,8 +252,7 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
                       <span
                         onClick={() => {
                           setMegaMenuOpen(false);
-                          if (onNavClick) onNavClick('products', col.id);
-                          else navigate(`/products/${col.id}`);
+                          navigate(`/product-detail/${subItem}`);
                         }}
                         style={{
                           fontSize: '0.84rem',
@@ -319,7 +295,7 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
             onMouseLeave={() => setAboutMenuOpen(false)}
             style={{
               position: 'fixed',
-              top: isScrolled ? '65px' : '85px',
+              top: isLightPage ? '46px' : '50px',
               left: 0,
               right: 0,
               margin: '0 auto',

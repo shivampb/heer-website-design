@@ -177,18 +177,17 @@ export default function WhyChooseUs({ onBookClick }) {
           </div>
         </div>
 
-        {/* Image Panel: Alternates right side vs left side with matching diagonal slant */}
+        {/* Image Panel: Alternates right side vs left side with matching diagonal slant and smooth horizontal glide */}
         <div
           className="carousel-image-panel"
           style={{
             position: 'absolute',
-            right: isRightSideImage ? '-25px' : 'auto',
-            left: isRightSideImage ? 'auto' : '-25px',
             top: 0,
             bottom: 0,
             width: '56%',
+            left: isRightSideImage ? '46%' : '-25px',
             overflow: 'hidden',
-            transition: 'right 0.6s cubic-bezier(0.16, 1, 0.3, 1), left 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+            transition: 'left 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1)'
           }}
         >
           {/* Skewed container (-11deg vs +11deg) with straight diagonal edge (no curves) */}
@@ -203,7 +202,7 @@ export default function WhyChooseUs({ onBookClick }) {
               transformOrigin: isRightSideImage ? 'bottom left' : 'bottom right',
               backgroundColor: '#11130e',
               boxShadow: isRightSideImage ? '-18px 0 45px rgba(0,0,0,0.06)' : '18px 0 45px rgba(0,0,0,0.06)',
-              transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease'
+              transition: 'transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.75s ease'
             }}
           >
             {/* Counter-skewed upright image container */}
@@ -214,7 +213,7 @@ export default function WhyChooseUs({ onBookClick }) {
                 transform: isRightSideImage ? 'skewX(11deg)' : 'skewX(-11deg)',
                 transformOrigin: isRightSideImage ? 'bottom left' : 'bottom right',
                 overflow: 'hidden',
-                transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+                transition: 'transform 0.75s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
             >
               <AnimatePresence mode="wait">
@@ -222,10 +221,10 @@ export default function WhyChooseUs({ onBookClick }) {
                   key={current.image}
                   src={current.image}
                   alt={current.roleTitle}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ x: isRightSideImage ? 60 : -60, opacity: 0, scale: 1.05 }}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  exit={{ x: isRightSideImage ? -60 : 60, opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                   style={{
                     position: 'absolute',
                     top: 0,
@@ -290,47 +289,74 @@ export default function WhyChooseUs({ onBookClick }) {
       {/* Responsive Styles for Mobile and Tablet */}
       <style>{`
         @media (max-width: 960px) {
-          .carousel-main-card {
-            flex-direction: column !important;
-            border-radius: 30px !important;
+          #why-us {
             height: auto !important;
             min-height: auto !important;
+            padding: 80px 18px 60px 18px !important;
+          }
+          .carousel-main-card {
+            flex-direction: column !important;
+            border-radius: 28px !important;
+            height: auto !important;
+            min-height: auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
           }
           .carousel-text-panel {
             width: 100% !important;
-            padding: 40px 28px !important;
+            padding: 36px 24px 36px 24px !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            text-align: left !important;
+          }
+          .carousel-text-panel p {
+            font-size: clamp(1.08rem, 4.2vw, 1.25rem) !important;
+            line-height: 1.5 !important;
+          }
+          .carousel-text-panel > div {
+            align-self: flex-start !important;
+            text-align: left !important;
           }
           .carousel-image-panel {
             position: relative !important;
-            right: auto !important;
+            left: 0 !important;
+            right: 0 !important;
             top: auto !important;
             bottom: auto !important;
-            min-height: 380px !important;
-            height: 380px !important;
+            min-height: 320px !important;
+            height: 340px !important;
             width: 100% !important;
             order: -1 !important;
           }
-          .image-clip-container, .image-clip-container > div {
+          .image-clip-container {
+            position: absolute !important;
+            inset: 0 !important;
             transform: none !important;
-            border-radius: 30px 30px 0 0 !important;
+            border-radius: 28px 28px 0 0 !important;
+            box-shadow: none !important;
+          }
+          .image-clip-container > div {
+            transform: none !important;
+            inset: 0 !important;
           }
         }
         @media (max-width: 640px) {
           #why-us {
-            padding: 30px 14px 50px 14px !important;
+            padding: 60px 14px 48px 14px !important;
           }
           .carousel-main-card {
-            border-radius: 24px !important;
+            border-radius: 22px !important;
           }
           .carousel-image-panel {
-            min-height: 280px !important;
-            height: 280px !important;
+            min-height: 250px !important;
+            height: 250px !important;
           }
           .image-clip-container {
-            border-radius: 24px 24px 0 0 !important;
+            border-radius: 22px 22px 0 0 !important;
           }
           .carousel-text-panel {
-            padding: 32px 22px !important;
+            padding: 28px 20px !important;
+            gap: 24px !important;
           }
         }
       `}</style>
