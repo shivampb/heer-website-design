@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { WELLNESS_DATA } from '../data/wellnessData';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -17,54 +16,33 @@ export default function WhyChooseUs({ onBookClick }) {
   const slides = [
     {
       id: 0,
-      title: "Precision Controller Cabinets & Touch Operating Panels.",
-      quote: "Engineered for any scale installation and backed by direct engineering service—every Heer controller cabinet and touch operating panel eliminates unnecessary complexity to deliver rock-solid vertical transportation and rapid field diagnostics.",
-      badgeTitle: "Heer Flagship Series",
-      badgeSub: "32-Bit Microprocessor Lift Controller (Closed Loop)",
-      image: image || "/products/cop-touch-panel.jpg",
-      specs: [
-        { label: "Category", value: "Controller Cabinets & Touch COP/LOP Panels" },
-        { label: "Installations", value: "15,000+ Active Units Globally" },
-        { label: "Architecture", value: "32-Bit Solid-State Logic & VVVF" },
-        { label: "Support Model", value: "Direct Engineering Schematics Desk" }
-      ]
+      quote: "Heer Technology & Control completely transformed our vertical transportation reliability. Our commercial towers now experience zero-jerk acceleration and rapid field diagnostics thanks to their 32-bit microprocessor controller cabinets and touch operating panels!",
+      roleTitle: "32-Bit Microprocessor Controller",
+      roleSub: "Flagship VVVF Lift Cabinet & Touch Logic Array",
+      image: image || "/products/cop-touch-panel.jpg"
     },
     {
       id: 1,
-      title: "Integrated VVVF Drive Systems & Spike Protection.",
-      quote: "Featuring heavy-duty phase failure relays, surge protection, and ultra-smooth VVVF drive integration. Our microprocessor logic ensures zero-jerk acceleration and millimeter-perfect floor leveling across high-rise installations.",
-      badgeTitle: "Power & Control Division",
-      badgeSub: "Heavy-Duty Drive & Multi-Stage Protection Unit",
-      image: "/products/controller-cabinet.jpg",
-      specs: [
-        { label: "Motor Control", value: "Vector VVVF Drive Integration" },
-        { label: "Protection", value: "Multi-Stage Spike & Phase Failure Relays" },
-        { label: "Leveling", value: "Millimeter-Precise Closed Loop Feedback" },
-        { label: "Reliability", value: "Zero Nuisance Fault Architecture" }
-      ]
+      quote: "Our maintenance downtime dropped to virtually zero after upgrading to Heer integrated VVVF drive systems and multi-stage spike protection. Millimeter-perfect floor leveling has made our passenger elevators a major benchmark for quality!",
+      roleTitle: "Integrated VVVF Vector Drive",
+      roleSub: "Multi-Stage Phase Protection & Spike Relay Unit",
+      image: "/products/controller-cabinet.jpg"
     },
     {
       id: 2,
-      title: "Glass Touch COP/LOP Arrays & Field Telemetry.",
-      quote: "Tempered champagne gold and obsidian black glass panels with high-contrast digital directional arrows. Combined with our plug-and-play wiring harnesses for rapid 24-hour deployment and remote diagnostic monitoring.",
-      badgeTitle: "Operating Interface Division",
-      badgeSub: "Touch Array & Remote Diagnostics Package",
-      image: "/products/glass-display-lop.jpg",
-      specs: [
-        { label: "Interface", value: "Obsidian & Champagne Gold Glass Panels" },
-        { label: "Display", value: "High-Contrast Matrix Direction Arrows" },
-        { label: "Harness", value: "Plug-and-Play Quick Connect Terminals" },
-        { label: "Monitoring", value: "24/7 Field Telemetry & Diagnostic Desk" }
-      ]
+      quote: "The tempered obsidian black and champagne gold glass touch LOP arrays gave our building lobby an ultra-luxury modern aesthetic. Combined with their 24/7 direct telemetry desk, Heer's support model is simply unmatched in the industry.",
+      roleTitle: "Glass Touch COP & LOP Array",
+      roleSub: "Tempered Obsidian & Champagne Gold Interface",
+      image: "/products/glass-display-lop.jpg"
     }
   ];
 
-  // Auto-advance carousel every 6 seconds unless paused
+  // Auto-advance carousel every 3.5 seconds unless paused (faster auto slide speed)
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 3500);
     return () => clearInterval(timer);
   }, [isPaused, slides.length]);
 
@@ -73,8 +51,8 @@ export default function WhyChooseUs({ onBookClick }) {
     if (!contentRef.current) return;
     const ctx = gsap.context(() => {
       gsap.fromTo('.carousel-anim-item',
-        { y: 22, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.65, stagger: 0.08, ease: 'power3.out' }
+        { y: 15, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out' }
       );
     }, contentRef);
     return () => ctx.revert();
@@ -82,14 +60,6 @@ export default function WhyChooseUs({ onBookClick }) {
 
   const handleDotClick = (index) => {
     setActiveSlide(index);
-  };
-
-  const handlePrev = () => {
-    setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const handleNext = () => {
-    setActiveSlide((prev) => (prev + 1) % slides.length);
   };
 
   const current = slides[activeSlide];
@@ -101,9 +71,10 @@ export default function WhyChooseUs({ onBookClick }) {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       style={{
-        backgroundColor: '#f6f4ee',
-        padding: '60px 20px 80px 20px',
+        backgroundColor: '#f5f3eb',
         minHeight: '100vh',
+        height: '100vh',
+        padding: '3vh 2vw 2vh 2vw',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -111,243 +82,169 @@ export default function WhyChooseUs({ onBookClick }) {
         position: 'relative'
       }}
     >
-      {/* Full Screen Width & Height Container Card matching Reference Image 2 */}
+      {/* Exact Reference Image 2 Main Card Structure (Taking ~100VH) */}
       <div
         className="carousel-main-card"
         style={{
           width: '100%',
-          maxWidth: '1600px',
-          minHeight: 'calc(100vh - 160px)',
-          backgroundColor: '#fcfbf8',
-          borderRadius: '44px',
-          boxShadow: '0 30px 90px rgba(18, 22, 15, 0.09)',
-          border: '1px solid rgba(0,0,0,0.06)',
+          maxWidth: '1540px',
+          height: 'calc(100vh - 80px)',
+          minHeight: 'calc(100vh - 80px)',
+          backgroundColor: '#fefdfb',
+          borderRadius: '40px',
+          boxShadow: '0 24px 70px rgba(20, 24, 16, 0.08)',
           display: 'flex',
           overflow: 'hidden',
-          position: 'relative'
+          position: 'relative',
+          border: '1px solid rgba(0,0,0,0.04)'
         }}
       >
-        {/* Left Half: Clean Editorial Typography, Quote, Specs, and Role Attribution (Reference 2 style) */}
+        {/* Left Half: Ultra Minimalist Editorial Quote at TOP & Role at BOTTOM (creating large middle space) */}
         <div
           ref={contentRef}
           className="carousel-text-panel"
           style={{
-            flex: '1 1 52%',
-            padding: 'clamp(36px, 5.5vw, 76px) clamp(30px, 5vw, 68px)',
+            width: '48%',
+            height: '100%',
+            padding: 'clamp(20px, 2.8vw, 36px) clamp(18px, 2.4vw, 32px)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
+            position: 'relative',
             zIndex: 10
           }}
         >
-          <div>
-            {/* Top Tag & Slide Counter */}
-            <div className="carousel-anim-item" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '28px', flexWrap: 'wrap', gap: '12px' }}>
-              <span className="wellness-tag" style={{ margin: 0 }}>
-                ✦ WHY CHOOSE HEER • SERIES 0{activeSlide + 1}/0{slides.length}
-              </span>
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <button
-                  onClick={handlePrev}
-                  aria-label="Previous Slide"
-                  style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '50%',
-                    border: '1px solid #dcdcdc',
-                    background: '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    color: '#222',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.borderColor = '#111'}
-                  onMouseLeave={(e) => e.currentTarget.style.borderColor = '#dcdcdc'}
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  onClick={handleNext}
-                  aria-label="Next Slide"
-                  style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '50%',
-                    border: '1px solid #dcdcdc',
-                    background: '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    color: '#222',
-                    transition: 'all 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.borderColor = '#111'}
-                  onMouseLeave={(e) => e.currentTarget.style.borderColor = '#dcdcdc'}
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-            </div>
-
-            {/* Editorial Title */}
-            <h2
-              className="carousel-anim-item"
-              style={{
-                fontSize: 'clamp(2rem, 3.1vw, 3.2rem)',
-                fontWeight: 700,
-                letterSpacing: '-0.03em',
-                lineHeight: 1.15,
-                color: '#111111',
-                marginBottom: '24px'
-              }}
-            >
-              {current.title}
-            </h2>
-
-            {/* Editorial Quote matching "Leka Studio completely transformed..." in Reference 2 */}
+          {/* Top: Large, Airy Editorial Quote fitted at the very top */}
+          <div style={{ alignSelf: 'flex-start' }}>
             <p
               className="carousel-anim-item"
               style={{
-                fontSize: 'clamp(1.05rem, 1.35vw, 1.25rem)',
-                color: '#444444',
-                lineHeight: 1.68,
-                maxWidth: '640px',
-                marginBottom: '36px',
-                fontWeight: 400
+                fontSize: 'clamp(1.02rem, 1.35vw, 1.22rem)',
+                color: '#282828',
+                lineHeight: 1.38,
+                fontWeight: 400,
+                letterSpacing: '-0.01em',
+                margin: 0,
+                fontFamily: 'inherit'
               }}
             >
-              "{current.quote}"
+              {current.quote}
             </p>
-
-            {/* Engineering Specs Table block */}
-            <div
-              className="carousel-anim-item spec-table-block"
-              style={{
-                borderTop: '1px solid #e2ded6',
-                borderBottom: '1px solid #e2ded6',
-                paddingTop: '20px',
-                paddingBottom: '14px',
-                marginBottom: '36px',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-                gap: '14px 28px'
-              }}
-            >
-              {current.specs.map((spec, i) => (
-                <div key={i} style={{ display: 'flex', flexDirection: 'column' }}>
-                  <span style={{ fontSize: '0.78rem', color: '#888888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '3px' }}>
-                    {spec.label}
-                  </span>
-                  <span style={{ fontSize: '0.88rem', fontWeight: 600, color: '#111111' }}>
-                    {spec.value}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* Bottom Left: Role / Attribution Title ("General Manager / Luxury Resort" style from Ref 2) + Button */}
+          {/* Bottom: Author/Role/Division signature placed at the very bottom left */}
           <div
             className="carousel-anim-item"
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: '20px'
+              alignSelf: 'flex-start',
+              cursor: 'pointer'
             }}
+            onClick={() => onBookClick && onBookClick(current.roleSub)}
+            title="Click to schedule consultation desk for this division"
           >
-            <div>
-              <div style={{ fontSize: '1.15rem', fontWeight: 700, color: '#111111', marginBottom: '3px' }}>
-                {current.badgeTitle}
-              </div>
-              <div style={{ fontSize: '0.88rem', color: '#777777', fontWeight: 400 }}>
-                {current.badgeSub}
-              </div>
-            </div>
-
-            <button
-              onClick={() => onBookClick && onBookClick(current.badgeSub)}
-              className="btn-primary"
+            <div
               style={{
-                padding: '14px 28px',
-                backgroundColor: '#111111',
-                color: '#ffffff',
-                border: 'none',
-                borderRadius: '8px',
-                fontSize: '0.94rem',
+                fontSize: '1.18rem',
                 fontWeight: 600,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                cursor: 'pointer',
-                boxShadow: '0 6px 20px rgba(0,0,0,0.18)',
-                transition: 'transform 0.2s ease, background 0.2s ease'
+                color: '#1a1a1a',
+                marginBottom: '3px',
+                letterSpacing: '-0.01em'
               }}
             >
-              <span>Schedule Consultation</span>
-              <ArrowRight size={15} />
-            </button>
+              {current.roleTitle}
+            </div>
+            <div
+              style={{
+                fontSize: '0.94rem',
+                color: '#888888',
+                fontWeight: 400
+              }}
+            >
+              {current.roleSub}
+            </div>
           </div>
         </div>
 
-        {/* Right Half: Full Height Photo with distinctive Curved / Rounded Left Edge (Reference 2 style) */}
+        {/* Right Half: Photo with TRUE Diagonal Slant (-11deg) and 90px Curves at Top-Left & Bottom-Left */}
         <div
           className="carousel-image-panel"
           style={{
-            flex: '1 1 48%',
-            position: 'relative',
-            overflow: 'hidden',
-            borderTopLeftRadius: '70px',
-            borderBottomLeftRadius: '70px',
-            boxShadow: '-12px 0 35px rgba(0,0,0,0.06)'
+            position: 'absolute',
+            right: '-25px',
+            top: 0,
+            bottom: 0,
+            width: '58%',
+            overflow: 'hidden'
           }}
         >
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={current.image}
-              src={current.image}
-              alt={current.title}
-              initial={{ opacity: 0, scale: 1.06 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center'
-              }}
-            />
-          </AnimatePresence>
-
-          {/* Subtle overlay gradient on image for richness */}
+          {/* Skewed container (-11deg) with 90px bilateral curves on left corners */}
           <div
+            className="image-clip-container"
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.25) 100%)',
-              pointerEvents: 'none'
+              overflow: 'hidden',
+              borderRadius: '90px 40px 40px 90px',
+              transform: 'skewX(-11deg)',
+              transformOrigin: 'bottom left',
+              backgroundColor: '#11130e',
+              boxShadow: '-18px 0 45px rgba(0,0,0,0.06)'
             }}
-          />
+          >
+            {/* Counter-skewed upright image container */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: '-15%',
+                transform: 'skewX(11deg)',
+                transformOrigin: 'bottom left',
+                overflow: 'hidden'
+              }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current.image}
+                  src={current.image}
+                  alt={current.roleTitle}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center'
+                  }}
+                />
+              </AnimatePresence>
+
+              {/* Subtle light grading overlay */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.18) 100%)',
+                  pointerEvents: 'none'
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Three Navigation Dots Below the Section (Exact user requirement) */}
+      {/* Three Dots Navigation Below the Section */}
       <div
         className="carousel-dots-wrapper"
         style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '14px',
-          marginTop: '32px',
+          gap: '12px',
+          marginTop: '22px',
           zIndex: 20
         }}
       >
@@ -359,15 +256,15 @@ export default function WhyChooseUs({ onBookClick }) {
               onClick={() => handleDotClick(idx)}
               aria-label={`Go to slide ${idx + 1}`}
               style={{
-                height: '10px',
-                width: isActive ? '36px' : '10px',
+                height: '8px',
+                width: isActive ? '32px' : '8px',
                 borderRadius: '999px',
-                backgroundColor: isActive ? '#111111' : '#cccccc',
+                backgroundColor: isActive ? '#1a1a1a' : '#d2cfc6',
                 border: 'none',
                 cursor: 'pointer',
                 transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
                 padding: 0,
-                boxShadow: isActive ? '0 2px 8px rgba(0,0,0,0.25)' : 'none'
+                boxShadow: isActive ? '0 2px 6px rgba(0,0,0,0.18)' : 'none'
               }}
             />
           );
@@ -379,40 +276,45 @@ export default function WhyChooseUs({ onBookClick }) {
         @media (max-width: 960px) {
           .carousel-main-card {
             flex-direction: column !important;
-            border-radius: 28px !important;
+            border-radius: 30px !important;
+            height: auto !important;
             min-height: auto !important;
           }
-          .carousel-image-panel {
-            min-height: 380px !important;
+          .carousel-text-panel {
             width: 100% !important;
-            border-top-left-radius: 0 !important;
-            border-top-right-radius: 0 !important;
-            border-bottom-left-radius: 28px !important;
-            border-bottom-right-radius: 28px !important;
+            padding: 40px 28px !important;
+          }
+          .carousel-image-panel {
+            position: relative !important;
+            right: auto !important;
+            top: auto !important;
+            bottom: auto !important;
+            min-height: 380px !important;
+            height: 380px !important;
+            width: 100% !important;
             order: -1 !important;
           }
-          .carousel-text-panel {
-            padding: 36px 24px !important;
-          }
-          .spec-table-block {
-            grid-template-columns: 1fr !important;
-            gap: 12px !important;
+          .image-clip-container, .image-clip-container > div {
+            transform: none !important;
+            border-radius: 30px 30px 0 0 !important;
           }
         }
         @media (max-width: 640px) {
           #why-us {
-            padding: 40px 12px 60px 12px !important;
+            padding: 30px 14px 50px 14px !important;
           }
           .carousel-main-card {
-            border-radius: 22px !important;
+            border-radius: 24px !important;
           }
           .carousel-image-panel {
             min-height: 280px !important;
-            border-bottom-left-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
+            height: 280px !important;
+          }
+          .image-clip-container {
+            border-radius: 24px 24px 0 0 !important;
           }
           .carousel-text-panel {
-            padding: 28px 18px !important;
+            padding: 32px 22px !important;
           }
         }
       `}</style>
