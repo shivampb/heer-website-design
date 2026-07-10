@@ -14,6 +14,7 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
 import SelfCheckModal from './components/SelfCheckModal';
+import CustomCursor from './components/CustomCursor';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,6 +153,7 @@ export default function App() {
 
   return (
     <div className="wellness-app">
+      <CustomCursor />
       {/* Interactive Scroll Progress Momentum Bar */}
       <motion.div
         style={{

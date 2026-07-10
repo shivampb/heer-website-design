@@ -37,12 +37,12 @@ export default function WhyChooseUs({ onBookClick }) {
     }
   ];
 
-  // Auto-advance carousel every 3.5 seconds unless paused (faster auto slide speed)
+  // Auto-advance carousel every 4.5 seconds unless paused (balanced auto slide speed)
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
-    }, 3500);
+    }, 4500);
     return () => clearInterval(timer);
   }, [isPaused, slides.length]);
 
@@ -68,8 +68,6 @@ export default function WhyChooseUs({ onBookClick }) {
     <section
       id="why-us"
       ref={sectionRef}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       style={{
         backgroundColor: '#f5f3eb',
         minHeight: '100vh',
@@ -239,6 +237,8 @@ export default function WhyChooseUs({ onBookClick }) {
       {/* Three Dots Navigation Below the Section */}
       <div
         className="carousel-dots-wrapper"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
         style={{
           display: 'flex',
           alignItems: 'center',
