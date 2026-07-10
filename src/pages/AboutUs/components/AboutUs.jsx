@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ShieldCheck, Cpu, Users, Award, ArrowRight } from 'lucide-react';
-import { WELLNESS_DATA } from '../data/wellnessData';
+import { WELLNESS_DATA } from '../../../data/wellnessData';
 
 function Word({ children, progress, range, isBold }) {
   const opacity = useTransform(progress, range, [0.15, 1]);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { WELLNESS_DATA } from '../data/wellnessData';
+import { WELLNESS_DATA } from '../../../data/wellnessData';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -19,32 +19,38 @@ export default function WhyChooseUs({ onBookClick }) {
       quote: "Heer Technology & Control completely transformed our vertical transportation reliability. Our commercial towers now experience zero-jerk acceleration and rapid field diagnostics thanks to their 32-bit microprocessor controller cabinets and touch operating panels!",
       roleTitle: "32-Bit Microprocessor Controller",
       roleSub: "Flagship VVVF Lift Cabinet & Touch Logic Array",
-      image: image || "/products/cop-touch-panel.jpg"
+      image: "/products/PXL_20260703_123613237.jpg"
     },
     {
       id: 1,
       quote: "Our maintenance downtime dropped to virtually zero after upgrading to Heer integrated VVVF drive systems and multi-stage spike protection. Millimeter-perfect floor leveling has made our passenger elevators a major benchmark for quality!",
       roleTitle: "Integrated VVVF Vector Drive",
       roleSub: "Multi-Stage Phase Protection & Spike Relay Unit",
-      image: "/products/controller-cabinet.jpg"
+      image: "/products/PXL_20250618_145413258.jpg"
     },
     {
       id: 2,
       quote: "The tempered obsidian black and champagne gold glass touch LOP arrays gave our building lobby an ultra-luxury modern aesthetic. Combined with their 24/7 direct telemetry desk, Heer's support model is simply unmatched in the industry.",
       roleTitle: "Glass Touch COP & LOP Array",
       roleSub: "Tempered Obsidian & Champagne Gold Interface",
-      image: "/products/glass-display-lop.jpg"
+      image: "/products/PXL_20250829_070627798.jpg"
+    },
+    {
+      id: 3,
+      quote: "Our facility managers now monitor real-time elevator traffic, door cycles, and motor temperatures directly from cloud dashboards using Heer's integrated telemetry and remote diagnostic platforms.",
+      roleTitle: "Cloud Telemetry & Diagnostics",
+      roleSub: "24/7 Remote Monitoring & IoT Interface Array",
+      image: "/products/PXL_20260610_125800539~2.jpg"
     }
   ];
 
-  // Auto-advance carousel every 4.5 seconds unless paused (balanced auto slide speed)
+  // Auto-advance carousel continuously every 5.5 seconds without pause
   useEffect(() => {
-    if (isPaused) return;
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
-    }, 4500);
+    }, 5500);
     return () => clearInterval(timer);
-  }, [isPaused, slides.length]);
+  }, [slides.length]);
 
   // GSAP animation when changing slide content
   useEffect(() => {
@@ -63,6 +69,7 @@ export default function WhyChooseUs({ onBookClick }) {
   };
 
   const current = slides[activeSlide];
+  const isRightSideImage = activeSlide % 2 === 0;
 
   return (
     <section
@@ -72,7 +79,7 @@ export default function WhyChooseUs({ onBookClick }) {
         backgroundColor: '#f5f3eb',
         minHeight: '100vh',
         height: '100vh',
-        padding: '3vh 2vw 2vh 2vw',
+        padding: '2.5vh 5px 2vh 5px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -80,14 +87,14 @@ export default function WhyChooseUs({ onBookClick }) {
         position: 'relative'
       }}
     >
-      {/* Exact Reference Image 2 Main Card Structure (Taking ~100VH) */}
+      {/* Exact Reference Image 2 Main Card Structure (Taking ~100VH with exactly 5px screen width margin) */}
       <div
         className="carousel-main-card"
         style={{
           width: '100%',
-          maxWidth: '1540px',
-          height: 'calc(100vh - 80px)',
-          minHeight: 'calc(100vh - 80px)',
+          maxWidth: 'calc(100vw - 10px)',
+          height: 'calc(100vh - 76px)',
+          minHeight: 'calc(100vh - 76px)',
           backgroundColor: '#fefdfb',
           borderRadius: '40px',
           boxShadow: '0 24px 70px rgba(20, 24, 16, 0.08)',
@@ -97,23 +104,29 @@ export default function WhyChooseUs({ onBookClick }) {
           border: '1px solid rgba(0,0,0,0.04)'
         }}
       >
-        {/* Left Half: Ultra Minimalist Editorial Quote at TOP & Role at BOTTOM (creating large middle space) */}
+        {/* Text Panel: Alternates left side vs right side depending on slide */}
         <div
           ref={contentRef}
           className="carousel-text-panel"
           style={{
-            width: '48%',
+            width: '46%',
             height: '100%',
-            padding: 'clamp(20px, 2.8vw, 36px) clamp(18px, 2.4vw, 32px)',
+            padding: isRightSideImage
+              ? 'clamp(28px, 3.5vw, 44px) clamp(36px, 4vw, 56px) clamp(28px, 3.5vw, 44px) clamp(36px, 4vw, 56px)'
+              : 'clamp(28px, 3.5vw, 44px) clamp(36px, 4vw, 56px) clamp(28px, 3.5vw, 44px) clamp(54px, 5.5vw, 84px)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             position: 'relative',
-            zIndex: 10
+            zIndex: 10,
+            marginLeft: isRightSideImage ? 0 : 'auto',
+            marginRight: isRightSideImage ? 'auto' : 0,
+            textAlign: isRightSideImage ? 'left' : 'right',
+            transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
           }}
         >
-          {/* Top: Large, Airy Editorial Quote fitted at the very top */}
-          <div style={{ alignSelf: 'flex-start' }}>
+          {/* Top: Large, Airy Editorial Quote fitted with flush edge on active side */}
+          <div style={{ alignSelf: isRightSideImage ? 'flex-start' : 'flex-end', width: '100%' }}>
             <p
               className="carousel-anim-item"
               style={{
@@ -130,12 +143,13 @@ export default function WhyChooseUs({ onBookClick }) {
             </p>
           </div>
 
-          {/* Bottom: Author/Role/Division signature placed at the very bottom left */}
+          {/* Bottom: Author/Role/Division placed precisely on active side boundary */}
           <div
             className="carousel-anim-item"
             style={{
-              alignSelf: 'flex-start',
-              cursor: 'pointer'
+              alignSelf: isRightSideImage ? 'flex-start' : 'flex-end',
+              cursor: 'pointer',
+              textAlign: isRightSideImage ? 'left' : 'right'
             }}
             onClick={() => onBookClick && onBookClick(current.roleSub)}
             title="Click to schedule consultation desk for this division"
@@ -163,30 +177,33 @@ export default function WhyChooseUs({ onBookClick }) {
           </div>
         </div>
 
-        {/* Right Half: Photo with TRUE Diagonal Slant (-11deg) and 90px Curves at Top-Left & Bottom-Left */}
+        {/* Image Panel: Alternates right side vs left side with matching diagonal slant */}
         <div
           className="carousel-image-panel"
           style={{
             position: 'absolute',
-            right: '-25px',
+            right: isRightSideImage ? '-25px' : 'auto',
+            left: isRightSideImage ? 'auto' : '-25px',
             top: 0,
             bottom: 0,
-            width: '58%',
-            overflow: 'hidden'
+            width: '56%',
+            overflow: 'hidden',
+            transition: 'right 0.6s cubic-bezier(0.16, 1, 0.3, 1), left 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
           }}
         >
-          {/* Skewed container (-11deg) with 90px bilateral curves on left corners */}
+          {/* Skewed container (-11deg vs +11deg) with straight diagonal edge (no curves) */}
           <div
             className="image-clip-container"
             style={{
               position: 'absolute',
               inset: 0,
               overflow: 'hidden',
-              borderRadius: '90px 40px 40px 90px',
-              transform: 'skewX(-11deg)',
-              transformOrigin: 'bottom left',
+              borderRadius: '0px',
+              transform: isRightSideImage ? 'skewX(-11deg)' : 'skewX(11deg)',
+              transformOrigin: isRightSideImage ? 'bottom left' : 'bottom right',
               backgroundColor: '#11130e',
-              boxShadow: '-18px 0 45px rgba(0,0,0,0.06)'
+              boxShadow: isRightSideImage ? '-18px 0 45px rgba(0,0,0,0.06)' : '18px 0 45px rgba(0,0,0,0.06)',
+              transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease'
             }}
           >
             {/* Counter-skewed upright image container */}
@@ -194,9 +211,10 @@ export default function WhyChooseUs({ onBookClick }) {
               style={{
                 position: 'absolute',
                 inset: '-15%',
-                transform: 'skewX(11deg)',
-                transformOrigin: 'bottom left',
-                overflow: 'hidden'
+                transform: isRightSideImage ? 'skewX(11deg)' : 'skewX(-11deg)',
+                transformOrigin: isRightSideImage ? 'bottom left' : 'bottom right',
+                overflow: 'hidden',
+                transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
             >
               <AnimatePresence mode="wait">
@@ -237,8 +255,6 @@ export default function WhyChooseUs({ onBookClick }) {
       {/* Three Dots Navigation Below the Section */}
       <div
         className="carousel-dots-wrapper"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
         style={{
           display: 'flex',
           alignItems: 'center',

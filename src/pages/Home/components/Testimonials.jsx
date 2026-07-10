@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
-import { WELLNESS_DATA } from '../data/wellnessData';
+import { WELLNESS_DATA } from '../../../data/wellnessData';
 
 function ReviewCard({ review, index, hoveredId, setHoveredId }) {
   const isHovered = hoveredId === review.id + '-' + index;

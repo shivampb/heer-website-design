@@ -48,12 +48,6 @@ export const WELLNESS_DATA = {
         title: "Heavy-Duty Controller Cabinets",
         image: "/products/controller-cabinet.jpg",
         desc: "Spike transformers and industrial relay synchronization engineered for heavy operations."
-      },
-      {
-        id: 7,
-        title: "Rapid Field Commissioning",
-        image: "/products/cop-touch-panel.jpg",
-        desc: "Plug-and-play wiring harnesses and self-tuning motor parameters for fast setup."
       }
     ]
   },

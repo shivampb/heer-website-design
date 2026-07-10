@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Sparkles, X, Pause } from 'lucide-react';
-import { WELLNESS_DATA } from '../data/wellnessData';
+import { WELLNESS_DATA } from '../../../data/wellnessData';
 
 export default function TechnicalSupport() {
   const { tag, title, cardHeadline, cardSubtext } = WELLNESS_DATA.companion;

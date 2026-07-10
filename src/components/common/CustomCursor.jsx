@@ -137,8 +137,8 @@ export default function CustomCursor() {
           zIndex: 999999
         }}
         animate={{
-          scale: isPressed ? 0.88 : isHovered ? 1.14 : 1,
-          rotate: isHovered ? -12 : 0
+          scale: isPressed ? 0.88 : isHovered ? 1.12 : 1,
+          rotate: 0
         }}
         transition={{
           scale: { type: 'spring', stiffness: 500, damping: 25 },
@@ -198,9 +198,9 @@ export default function CustomCursor() {
             </filter>
           </defs>
 
-          {/* Mathematically Perfect Rounded Triangle Chevron Path (No White Border) */}
+          {/* Straight Upright Pointer Arrow Path (Vertical Left Edge, No Excessive Tilt) */}
           <path
-            d="M 5.2,3.8 C 4.0,3.3 3.3,4.0 3.8,5.2 L 12.6,29.4 C 13.3,31.2 15.6,31.2 16.3,29.4 L 18.8,20.8 C 19.0,20.0 19.6,19.4 20.4,19.2 L 29.0,16.7 C 30.8,16.0 30.8,13.7 29.0,13.0 L 5.2,3.8 Z"
+            d="M 5.0,3.5 C 4.2,3.0 3.5,3.7 3.8,4.5 L 5.0,26.5 C 5.3,28.0 7.0,28.0 7.8,26.5 L 12.5,18.2 L 21.0,18.2 C 22.8,18.2 22.8,16.0 21.0,15.0 L 5.0,3.5 Z"
             fill={
               isOnDark
                 ? (isHovered ? "url(#whiteHoverMatte)" : "url(#whiteMatte)")
@@ -213,7 +213,7 @@ export default function CustomCursor() {
 
           {/* Crisp Top Ridge Sheen Highlight overlay */}
           <path
-            d="M 5.5,4.2 C 4.6,3.9 4.1,4.4 4.4,5.3 L 13.0,28.8 C 13.5,30.2 15.0,30.2 15.5,28.8 L 18.8,20.2 C 19.2,19.2 19.8,18.6 20.8,18.2 L 28.5,16.0 C 29.8,15.5 29.8,14.0 28.5,13.5 L 5.5,4.2 Z"
+            d="M 5.5,4.2 C 4.8,3.8 4.3,4.3 4.5,4.9 L 5.5,25.0 C 5.7,26.0 6.8,26.0 7.3,25.0 L 11.8,17.2 L 19.8,17.2 C 21.0,17.2 21.0,15.6 19.8,15.0 L 5.5,4.2 Z"
             fill="url(#topRidgeShine)"
             style={{ pointerEvents: 'none' }}
           />

@@ -140,25 +140,25 @@ export default function ProductCategories({ onBookSpecialist }) {
       id: 1,
       title: "Precision Controller Cabinets",
       desc: "32-Bit multi-processor controller cabinets equipped with Heer phase failure relays and Spike transformers.",
-      image: "/products/controller-cabinet.jpg"
+      image: "/products/PXL_20250829_071039783~2.jpg"
     },
     {
       id: 2,
       title: "Touch Car Operating Panels (COP)",
       desc: "Champagne gold & black glass car operating panels engineered with zero-jerk logic and touch buttons.",
-      image: "/products/cop-touch-panel.jpg"
+      image: "/products/PXL_20260610_125828141.jpg"
     },
     {
       id: 3,
       title: "Complete COP & LOP Arrays",
       desc: "Matched sets of car operating panels and landing call boxes built for plug-and-play installation.",
-      image: "/products/cop-lop-array.jpg"
+      image: "/products/PXL_20260610_125845955~2.jpg"
     },
     {
       id: 4,
       title: "Glass Landing Call Panels (LOP)",
       desc: "Curved black glass touch landing panels with ultra-clear digital floor direction displays.",
-      image: "/products/glass-display-lop.jpg"
+      image: "/products/PXL_20260629_084441890.jpg"
     }
   ];
 

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { WELLNESS_DATA } from '../data/wellnessData';
+import { WELLNESS_DATA } from '../../../data/wellnessData';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -106,139 +106,114 @@ export default function OurMission({ onMeetSpecialists }) {
           })}
         </p>
 
-        {/* Endless Carousel Loop CSS & Track */}
+        {/* Clean 3-Column Grid of Cards with 10px total gap, 5px width margin, and 10px curve border */}
         <style>{`
-          @keyframes endlessCarouselScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+          .mission-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            max-width: calc(100vw - 10px);
+            margin: 0 auto 56px auto;
+            padding: 0 5px;
+            text-align: left;
           }
-          .endless-carousel-track {
-            display: flex;
-            gap: 5px;
-            width: max-content;
-            animation: endlessCarouselScroll 60s linear infinite;
-          }
-          .endless-carousel-track:hover {
-            animation-play-state: paused;
+          @media (max-width: 960px) {
+            .mission-grid-container {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
           }
           @media (max-width: 640px) {
-            .gallery-card {
-              width: 270px !important;
-              flex: 0 0 270px !important;
-              height: 340px !important;
-            }
-            .gallery-card h4 {
-              font-size: 1.12rem !important;
-            }
-            .gallery-card p {
-              font-size: 0.84rem !important;
+            .mission-grid-container {
+              grid-template-columns: 1fr !important;
             }
           }
         `}</style>
-
-        <div style={{
-          width: '100%',
-          overflow: 'hidden',
-          marginBottom: '56px',
-          position: 'relative'
-        }}>
-          <div className="endless-carousel-track">
-            {[...gallery, ...gallery].map((item, index) => {
-              const isHovered = hoveredCard === index;
-              return (
-                <div
-                  key={`${item.id}-${index}`}
-                  className="philosophy-card-gsap gallery-card"
-                  onMouseEnter={() => setHoveredCard(index)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                  style={{
-                    position: 'relative',
-                    height: '380px',
-                    width: '320px',
-                    flex: '0 0 320px',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    boxShadow: isHovered ? '0 24px 54px rgba(28, 34, 20, 0.45)' : 'var(--shadow-sm)',
-                    cursor: 'pointer',
-                    transform: isHovered ? 'translateY(-6px)' : 'translateY(0px)',
-                    transition: 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease',
-                    border: isHovered ? '1px solid rgba(197, 216, 164, 0.65)' : '1px solid rgba(255,255,255,0.1)'
-                  }}
-                >
-                  {/* Background Image with Liquid Cubic Spring Zoom */}
+        <div className="mission-grid-container">
+          {gallery.map((item, index) => {
+            const isHovered = hoveredCard === index;
+            return (
+              <div
+                key={item.id}
+                className="philosophy-card-gsap"
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                  boxShadow: isHovered ? '0 20px 48px rgba(0, 0, 0, 0.12)' : '0 4px 20px rgba(0, 0, 0, 0.05)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)',
+                  transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                  transform: isHovered ? 'translateY(-6px)' : 'translateY(0px)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  cursor: 'pointer'
+                }}
+              >
+                {/* Top Image Area (No text overlay blocking pristine marketing posters) */}
+                <div style={{
+                  position: 'relative',
+                  height: '320px',
+                  width: '100%',
+                  overflow: 'hidden',
+                  backgroundColor: '#111111'
+                }}>
                   <img
                     src={item.image}
                     alt={item.title}
                     style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
-                      transform: isHovered ? 'scale(1.14)' : 'scale(1)',
-                      transition: 'transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                      display: 'block',
+                      transform: isHovered ? 'scale(1.06)' : 'scale(1)',
+                      transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
                     }}
                   />
-
-                  {/* High-Contrast Bottom Vignette for Perfect Text Legibility */}
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(180deg, rgba(0,0,0,0) 48%, rgba(0,0,0,0.85) 100%)',
-                    transition: 'background 0.4s ease'
-                  }} />
-
-                  {/* Sweeping Liquid Glass Shimmer Wave */}
+                  {/* Subtle Shimmer on Hover */}
                   <div style={{
                     position: 'absolute',
                     top: 0,
                     left: isHovered ? '160%' : '-160%',
                     width: '120%',
                     height: '100%',
-                    background: 'linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0) 100%)',
+                    background: 'linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)',
                     transform: 'skewX(-25deg)',
-                    transition: 'left 0.85s cubic-bezier(0.16, 1, 0.3, 1)',
-                    pointerEvents: 'none',
-                    zIndex: 2
+                    transition: 'left 0.75s ease',
+                    pointerEvents: 'none'
                   }} />
-
-                  {/* Card Text Information */}
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-end',
-                    padding: '26px 22px',
-                    textAlign: 'left',
-                    zIndex: 3,
-                    transform: isHovered ? 'translateY(-4px)' : 'translateY(0px)',
-                    transition: 'transform 0.4s ease'
-                  }}>
-                    <h4 style={{
-                      color: '#ffffff',
-                      fontSize: '1.24rem',
-                      fontWeight: 600,
-                      marginBottom: '6px',
-                      textShadow: '0 2px 10px rgba(0,0,0,0.6)'
-                    }}>
-                      {item.title}
-                    </h4>
-                    <p style={{
-                      color: 'rgba(255,255,255,0.86)',
-                      fontSize: '0.88rem',
-                      lineHeight: 1.45,
-                      margin: 0,
-                      textShadow: '0 2px 8px rgba(0,0,0,0.6)'
-                    }}>
-                      {item.desc}
-                    </p>
-                  </div>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Bottom Card Content Box */}
+                <div style={{
+                  padding: '26px 24px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  flexGrow: 1,
+                  backgroundColor: '#ffffff'
+                }}>
+                  <h4 style={{
+                    color: '#111111',
+                    fontSize: '1.2rem',
+                    fontWeight: 700,
+                    marginBottom: '8px',
+                    letterSpacing: '-0.01em'
+                  }}>
+                    {item.title}
+                  </h4>
+                  <p style={{
+                    color: '#555555',
+                    fontSize: '0.94rem',
+                    lineHeight: 1.6,
+                    margin: 0
+                  }}>
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Button Below Gallery */}

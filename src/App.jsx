@@ -1,101 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import OurMission from './components/OurMission';
-import WhyChooseUs from './components/WhyChooseUs';
-import TechnicalSupport from './components/TechnicalSupport';
-import Testimonials from './components/Testimonials';
-import ProductCategories from './components/ProductCategories';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
-import BookingModal from './components/BookingModal';
-import SelfCheckModal from './components/SelfCheckModal';
-import CustomCursor from './components/CustomCursor';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import BookingModal from './components/common/BookingModal';
+import SelfCheckModal from './components/common/SelfCheckModal';
+import CustomCursor from './components/common/CustomCursor';
+import AppRoutes from './routes/AppRoutes';
+import { isLowRamDevice } from './utils/devicePerformance';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function AboutUsPage({ onBookClick }) {
-  return (
-    <div style={{ paddingTop: '140px', paddingBottom: '100px', minHeight: '80vh', backgroundColor: 'var(--bg-primary)' }}>
-      <div className="container">
-        <span className="wellness-tag">✦ ABOUT HEER TECHNOLOGY & CONTROL</span>
-        <h1 style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.1, marginBottom: '24px', color: 'var(--text-main)' }}>
-          Engineering Simple, Solid &<br />Supportable Elevator Controllers Since 2009.
-        </h1>
-        <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '720px', lineHeight: 1.7, marginBottom: '48px' }}>
-          Welcome to our dedicated About Us page. With over 15,000 active controller installations worldwide, we combine robust 32-bit microprocessor engineering with direct, responsive field support.
-        </p>
-        <div style={{ padding: '60px', backgroundColor: '#ffffff', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.06)', boxShadow: 'var(--shadow-md)', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '1.6rem', marginBottom: '16px', color: 'var(--text-main)' }}>Dedicated About Us Page Ready</h3>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '32px', maxWidth: '540px', margin: '0 auto 32px' }}>
-            Each navigation option now has its own separate page. When you are ready with specific requirements or sections to display here, we can build it right away!
-          </p>
-          <button onClick={onBookClick} className="btn-primary">
-            Request Consultation Desk
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ContactUsPage({ onBookClick }) {
-  return (
-    <div style={{ paddingTop: '140px', paddingBottom: '100px', minHeight: '80vh', backgroundColor: 'var(--bg-primary)' }}>
-      <div className="container">
-        <span className="wellness-tag">✦ DIRECT TECHNICAL SUPPORT & CONTACT</span>
-        <h1 style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.1, marginBottom: '24px', color: 'var(--text-main)' }}>
-          Get in Touch With Our<br />Engineering & Support Desk.
-        </h1>
-        <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '720px', lineHeight: 1.7, marginBottom: '48px' }}>
-          Whether you need immediate diagnostic assistance, custom drive parameter programming, or a quote for a multi-tower modernization, our team is directly accessible.
-        </p>
-        <div style={{ padding: '60px', backgroundColor: '#ffffff', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.06)', boxShadow: 'var(--shadow-md)', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '1.6rem', marginBottom: '16px', color: 'var(--text-main)' }}>Dedicated Contact Us Page Ready</h3>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '32px', maxWidth: '540px', margin: '0 auto 32px' }}>
-            We have separated Contact Us into its own clean page. We can customize this space with interactive contact forms, office maps, or phone directory tables whenever you request!
-          </p>
-          <button onClick={onBookClick} className="btn-primary">
-            Open Consultation & Inquiry Form
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ProductsPage({ onBookClick }) {
-  return (
-    <div style={{ paddingTop: '140px', paddingBottom: '100px', minHeight: '80vh', backgroundColor: 'var(--bg-primary)' }}>
-      <div className="container">
-        <span className="wellness-tag">✦ MICROPROCESSOR & VVVF SYSTEMS</span>
-        <h1 style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.1, marginBottom: '24px', color: 'var(--text-main)' }}>
-          Elevator Control Systems engineered<br />for zero downtime.
-        </h1>
-        <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '720px', lineHeight: 1.7, marginBottom: '48px' }}>
-          Explore our complete lineup of 32-Bit Microprocessor Lift Controllers, Integrated VVVF Drive Packages, and Hydraulic Freight Control units.
-        </p>
-        <ProductCategories onBookSpecialist={onBookClick} />
-        <div style={{ marginTop: '40px' }}>
-          <TechnicalSupport />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function App() {
-  const [activePage, setActivePage] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [selfCheckModalOpen, setSelfCheckModalOpen] = useState(false);
   const [initialTherapy, setInitialTherapy] = useState('Microprocessor Lift Controller (32-Bit Closed Loop)');
   const [initialSpecialist, setInitialSpecialist] = useState('Senior R&D Lead Specialist');
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // If low RAM device or budget mobile phone, bypass heavy JS scroll loop to save CPU & RAM
+    if (isLowRamDevice()) {
+      document.documentElement.style.scrollBehavior = 'smooth';
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -112,8 +62,6 @@ export default function App() {
     };
 
     gsap.ticker.add(tickerCallback);
-    gsap.ticker.fps(60);
-
     return () => {
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
@@ -127,24 +75,27 @@ export default function App() {
     restDelta: 0.001
   });
 
-  const openBookingModal = (therapy = 'Microprocessor Lift Controller (32-Bit Closed Loop)', specialist = 'Senior R&D Lead Specialist') => {
-    setInitialTherapy(therapy);
-    setInitialSpecialist(specialist);
-    setBookingModalOpen(true);
+  const openBookingModal = () => {
+    navigate('/contact-us');
   };
 
-  const handleNavClick = (pageId) => {
-    setActivePage(pageId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleNavClick = (pageId, categoryId = 'all') => {
+    if (pageId === 'home') navigate('/');
+    else if (pageId === 'about-us') navigate('/about-us');
+    else if (pageId === 'contact-us') navigate('/contact-us');
+    else if (pageId === 'products') {
+      if (categoryId && categoryId !== 'all') navigate(`/products/${categoryId}`);
+      else navigate('/products');
+    }
   };
 
   const scrollToSection = (id) => {
-    if (activePage !== 'home') {
-      setActivePage('home');
+    if (location.pathname !== '/') {
+      navigate('/');
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      }, 150);
     } else {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -170,95 +121,35 @@ export default function App() {
         }}
       />
 
-      {/* Sticky Luxury Header with new Page Navigation */}
+      {/* Global Top Ambient Glow Light Beam Across All Pages */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '240px',
+          background: 'radial-gradient(ellipse 80% 100% at 50% 0%, rgba(198, 166, 97, 0.16) 0%, rgba(33, 120, 156, 0.08) 50%, rgba(255, 255, 255, 0) 100%)',
+          pointerEvents: 'none',
+          zIndex: 900
+        }}
+      />
+
+      {/* Sticky Luxury Header with exact URL routing */}
       <Header
-        activePage={activePage}
+        activePage={location.pathname === '/' ? 'home' : location.pathname.replace('/', '')}
         onNavClick={handleNavClick}
         onBookClick={() => openBookingModal()}
         onSelfCheckClick={() => setSelfCheckModalOpen(true)}
       />
 
-      {/* Page Routing */}
-      {activePage === 'about-us' && (
-        <AboutUsPage onBookClick={() => openBookingModal()} />
-      )}
-
-      {activePage === 'contact-us' && (
-        <ContactUsPage onBookClick={() => openBookingModal()} />
-      )}
-
-      {activePage === 'products' && (
-        <ProductsPage onBookClick={() => openBookingModal()} />
-      )}
-
-      {activePage === 'home' && (
-        <main>
-          <Hero
-            onStartJourney={() => scrollToSection('philosophy')}
-            onExploreNourish={() => scrollToSection('why-us')}
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <OurMission
-              onMeetSpecialists={() => scrollToSection('mentors')}
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <WhyChooseUs
-              onBookClick={() => openBookingModal('Microprocessor Lift Controller (32-Bit Closed Loop)')}
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <ProductCategories
-              onBookSpecialist={() => scrollToSection('faq')}
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <TechnicalSupport />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Testimonials />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <FAQ />
-          </motion.div>
-        </main>
-      )}
+      {/* Recommended React 2025 Routing Architecture */}
+      <AppRoutes
+        onBookClick={() => openBookingModal()}
+        onSelfCheckClick={() => setSelfCheckModalOpen(true)}
+        scrollToSection={scrollToSection}
+        handleNavClick={handleNavClick}
+      />
 
       {/* Footer */}
       <motion.div
@@ -286,6 +177,51 @@ export default function App() {
         onClose={() => setSelfCheckModalOpen(false)}
         onBookConsultation={(modality) => openBookingModal(modality)}
       />
+
+      {/* Global Floating "Scroll to Top" Instant Widget Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            style={{
+              position: 'fixed',
+              bottom: '28px',
+              right: '28px',
+              width: '52px',
+              height: '52px',
+              borderRadius: '50%',
+              backgroundColor: '#111111',
+              color: '#ffffff',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.25)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 9999,
+              transition: 'background-color 0.2s ease, transform 0.15s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#c6a661';
+              e.currentTarget.style.transform = 'translateY(-3px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#111111';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+            title="Scroll to top"
+            aria-label="Scroll to top instantly"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m18 15-6-6-6 6"/>
+            </svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
