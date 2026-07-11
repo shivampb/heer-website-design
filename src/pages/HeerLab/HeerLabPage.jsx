@@ -54,11 +54,11 @@ export default function HeerLabPage({ onBookClick }) {
   ];
 
   return (
-    <div style={{ backgroundColor: '#ffffff', color: '#000000', overflowX: 'hidden', width: '100vw', paddingTop: '65px', fontFamily: 'var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif)' }}>
+    <div style={{ backgroundColor: 'var(--bg-primary)', color: '#000000', overflowX: 'hidden', width: '100vw', paddingTop: '65px', fontFamily: 'var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif)' }}>
       
       {/* SECTION 1: SCANDINAVIAN EDITORIAL HERO & PANORAMIC SCREEN */}
-      <section style={{ width: '100vw', padding: 'clamp(20px, 3vw, 36px) clamp(24px, 6vw, 100px) 60px clamp(24px, 6vw, 100px)' }}>
-        <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
+      <section style={{ width: '100vw', padding: 'clamp(20px, 3vw, 36px) clamp(24px, 5vw, 80px) 60px clamp(24px, 5vw, 80px)' }}>
+        <div style={{ width: '100%', margin: '0 auto' }}>
           
           {/* Top Editorial Label & Hero Headline */}
           <div style={{ marginBottom: '48px', maxWidth: '1100px' }}>
@@ -66,14 +66,15 @@ export default function HeerLabPage({ onBookClick }) {
               Advanced Research & Engineering Division
             </div>
             <h1 style={{
-              fontSize: 'clamp(2.6rem, 5.8vw, 5.4rem)',
+              fontSize: 'clamp(2.4rem, 4.4vw, 4.2rem)',
               fontWeight: 500,
               color: '#000000',
-              lineHeight: 1.05,
+              lineHeight: 1.12,
               letterSpacing: '-0.04em',
-              fontFamily: 'var(--font-heading)'
+              fontFamily: 'var(--font-heading)',
+              maxWidth: '920px'
             }}>
-              Heer Lab is our most advanced technical R&amp;D department, where hardware specialists, firmware designers, and power engineers work in synergy.
+              Where hardware specialists & firmware engineers pioneer advanced elevator R&D.
             </h1>
           </div>
 
@@ -83,7 +84,7 @@ export default function HeerLabPage({ onBookClick }) {
             height: 'clamp(380px, 60vh, 720px)',
             overflow: 'hidden',
             backgroundColor: '#111111',
-            borderRadius: '12px',
+            borderRadius: '0px',
             marginBottom: '80px'
           }}>
             <img
@@ -109,14 +110,14 @@ export default function HeerLabPage({ onBookClick }) {
             marginBottom: '80px'
           }}>
             <div style={{ fontSize: '0.88rem', fontWeight: 500, color: '#666666', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              R&amp;D Mission
+              Research Mission
             </div>
             <div>
               <p style={{ fontSize: 'clamp(1.3rem, 2.4vw, 1.95rem)', fontWeight: 500, color: '#000000', lineHeight: 1.35, letterSpacing: '-0.02em', marginBottom: '28px', maxWidth: '780px' }}>
-                We believe that the future of vertical transportation is built on continuous technical experimentation, open-source diagnostic clarity, and uncompromised testing standards.
+                We believe vertical transportation architecture must constantly evolve. Our laboratory focuses on deterministic real-time operating systems (RTOS), noise immunity, and regenerative energy efficiency.
               </p>
               <p style={{ fontSize: '1.05rem', color: '#555555', lineHeight: 1.68, maxWidth: '680px', marginBottom: '32px' }}>
-                Inspired by premier European laboratory methodologies, our internal R&amp;D facility operates as an independent testing ground. Here, every circuit topology, CAN-Bus protocol, and high-voltage drive module is tortured beyond its theoretical limits before reaching the commercial market.
+                From micro-stroke button life-cycle testing to high-power IGBT thermal dissipation analysis, Heer Lab ensures every hardware component exceeding stringent European (EN81-50) endurance protocols before entering production.
               </p>
             </div>
           </div>
@@ -125,30 +126,30 @@ export default function HeerLabPage({ onBookClick }) {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '40px',
+            gap: 'clamp(30px, 4vw, 50px)',
             borderBottom: '1px solid rgba(0, 0, 0, 0.15)',
             paddingBottom: '80px',
             marginBottom: '100px'
           }}>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>Dedicated R&amp;D &amp; Testing Space</div>
-              <div style={{ fontSize: 'clamp(2.8rem, 4.5vw, 4.2rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>4,500+ sq.ft</div>
+              <div style={{ fontSize: 'clamp(2.4rem, 3.6vw, 3.6rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>4,500+ sq.ft</div>
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>Continuous Stress Burn-In</div>
-              <div style={{ fontSize: 'clamp(2.8rem, 4.5vw, 4.2rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>48 Hours</div>
+              <div style={{ fontSize: 'clamp(2.4rem, 3.6vw, 3.6rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>48 Hours</div>
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>Control Loop Response Latency</div>
-              <div style={{ fontSize: 'clamp(2.8rem, 4.5vw, 4.2rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>0.01 ms</div>
+              <div style={{ fontSize: 'clamp(2.4rem, 3.6vw, 3.6rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>0.01 ms</div>
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>In-House Firmware Logic Design</div>
-              <div style={{ fontSize: 'clamp(2.8rem, 4.5vw, 4.2rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>100%</div>
+              <div style={{ fontSize: 'clamp(2.4rem, 3.6vw, 3.6rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>100%</div>
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>Core Processor Architecture</div>
-              <div style={{ fontSize: 'clamp(2.8rem, 4.5vw, 4.2rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>32-Bit Dual</div>
+              <div style={{ fontSize: 'clamp(2.4rem, 3.6vw, 3.6rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>32-Bit Dual</div>
             </div>
           </div>
 
@@ -156,8 +157,8 @@ export default function HeerLabPage({ onBookClick }) {
       </section>
 
       {/* SECTION 2: EDITORIAL ACCORDION PILLARS */}
-      <section style={{ width: '100vw', padding: '0 clamp(24px, 6vw, 100px) 100px clamp(24px, 6vw, 100px)' }}>
-        <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
+      <section style={{ width: '100vw', padding: '0 clamp(24px, 5vw, 80px) 100px clamp(24px, 5vw, 80px)' }}>
+        <div style={{ width: '100%', margin: '0 auto' }}>
           
           {/* Section Header */}
           <div style={{
@@ -183,7 +184,8 @@ export default function HeerLabPage({ onBookClick }) {
               return (
                 <div 
                   key={division.id}
-                  style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.15)' }}
+                  style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.15)', transition: 'background-color 0.25s ease' }}
+                  onMouseEnter={() => setOpenAccordion(division.id)}
                 >
                   <button
                     onClick={() => setOpenAccordion(isOpen ? -1 : division.id)}
@@ -236,8 +238,8 @@ export default function HeerLabPage({ onBookClick }) {
       </section>
 
       {/* SECTION 3: APPARATUS & TEST RIG SHOWCASE CARDS */}
-      <section style={{ width: '100vw', padding: '100px clamp(24px, 6vw, 100px)', backgroundColor: '#fcfaf6', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
-        <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
+      <section style={{ width: '100vw', padding: '100px clamp(24px, 5vw, 80px)', backgroundColor: 'var(--bg-primary)', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+        <div style={{ width: '100%', margin: '0 auto' }}>
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '24px', marginBottom: '60px' }}>
             <div>

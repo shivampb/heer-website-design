@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 // Route-based code splitting: Only load page chunks when navigated to (`slashes RAM & first-load payload`)
 const HomePage = lazy(() => import('../pages/Home/HomePage'));
 const AboutUsPage = lazy(() => import('../pages/AboutUs/AboutUsPage'));
-const CompanyEthicsPage = lazy(() => import('../pages/AboutUs/CompanyEthicsPage'));
-const ManufacturingPage = lazy(() => import('../pages/AboutUs/ManufacturingPage'));
-const HeerLabPage = lazy(() => import('../pages/AboutUs/HeerLabPage'));
+const CompanyEthicsPage = lazy(() => import('../pages/CompanyEthics/CompanyEthicsPage'));
+const ManufacturingPage = lazy(() => import('../pages/Manufacturing/ManufacturingPage'));
+const HeerLabPage = lazy(() => import('../pages/HeerLab/HeerLabPage'));
 const ContactUsPage = lazy(() => import('../pages/ContactUs/ContactUsPage'));
 const ProductGridPage = lazy(() => import('../pages/Products/ProductGridPage'));
 const ProductDetailPage = lazy(() => import('../pages/ProductDetail/ProductDetailPage'));
@@ -68,6 +68,22 @@ export default function AppRoutes({
                 onSelectTherapy={(cat) => handleNavClick('products', cat?.id || cat)}
                 onSelfCheckClick={onSelfCheckClick}
               />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.35, ease: 'easeOut' }}>
+              <AboutUsPage onBookClick={onBookClick} />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/about/*"
+          element={
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.35, ease: 'easeOut' }}>
+              <AboutUsPage onBookClick={onBookClick} />
             </motion.div>
           }
         />

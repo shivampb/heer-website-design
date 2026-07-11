@@ -32,29 +32,14 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
 
   const megaMenuColumns = [
     {
-      id: 'main-boards',
-      title: 'MAIN BOARDS',
-      items: ['HEER-CTRL-32', 'HEER-SER-01', 'HEER-SER-02', 'HEER-INV-01', 'HEER-DEST-01']
-    },
-    {
       id: 'control-panels',
       title: 'CONTROL PANELS',
-      items: ['HEER-FIX-01', 'HEER-FIX-02', 'HEER-KEY-01']
+      items: ['HEER-CTRL-32', 'HEER-INV-01', 'HEER-DEST-01', 'HEER-SER-01', 'HEER-SER-02', 'CL24', 'GSM105', 'SNV201', 'HEER-DRV-01', 'HEER-COMM-IOT']
     },
     {
-      id: 'push-buttons',
-      title: 'PUSH BUTTONS',
-      items: ['HEER-BTN-01', 'HEER-FIX-ACC']
-    },
-    {
-      id: 'displays',
-      title: 'DISPLAYS',
-      items: ['HEER-DIS-01', 'HEER-APP-01']
-    },
-    {
-      id: 'other-products',
-      title: 'OTHER PRODUCTS',
-      items: ['CL24', 'GSM105', 'SNV201', 'HEER-DRV-01', 'HEER-COMM-IOT']
+      id: 'cop-lop',
+      title: 'COP & LOP PANELS',
+      items: ['HEER-FIX-01', 'HEER-FIX-02', 'HEER-KEY-01', 'HEER-BTN-01', 'HEER-FIX-ACC', 'HEER-DIS-01', 'HEER-APP-01']
     }
   ];
 
@@ -71,7 +56,7 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
   ];
 
   return (
-    <header 
+    <header
       style={{
         position: 'fixed',
         top: 0,
@@ -88,8 +73,8 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative' }}>
         {/* Brand Logo */}
-        <a 
-          href="#home" 
+        <a
+          href="#home"
           onClick={(e) => {
             e.preventDefault();
             if (onNavClick) onNavClick('home');
@@ -107,8 +92,8 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
             { label: 'Products', id: 'products' },
             { label: 'Contact Us', id: 'contact-us' }
           ].map((item) => (
-            <div 
-              key={item.id} 
+            <div
+              key={item.id}
               style={{ position: 'relative', paddingBottom: '6px', paddingTop: '6px' }}
               onMouseEnter={() => {
                 if (item.id === 'products') { setMegaMenuOpen(true); setAboutMenuOpen(false); }
@@ -217,26 +202,26 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
               border: '1px solid rgba(0, 0, 0, 0.08)',
               padding: '32px 36px',
               display: 'grid',
-              gridTemplateColumns: 'repeat(5, 1fr)',
-              gap: '24px',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '48px',
               zIndex: 1001
             }}
           >
             {megaMenuColumns.map((col) => (
               <div key={col.id} style={{ display: 'flex', flexDirection: 'column' }}>
-                <h4 
+                <h4
                   onClick={() => {
                     setMegaMenuOpen(false);
                     if (onNavClick) onNavClick('products', col.id);
                   }}
                   style={{
-                    fontSize: '0.94rem',
-                    fontWeight: 600,
+                    fontSize: '1.02rem',
+                    fontWeight: 700,
                     color: '#111111',
-                    marginBottom: '14px',
+                    marginBottom: '18px',
                     cursor: 'pointer',
-                    borderBottom: '1px solid rgba(0,0,0,0.08)',
-                    paddingBottom: '8px',
+                    borderBottom: '2px solid #111111',
+                    paddingBottom: '10px',
                     transition: 'color 0.2s ease',
                     letterSpacing: '-0.01em'
                   }}
@@ -246,7 +231,14 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
                   {col.title}
                 </h4>
 
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <ul style={{
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: 0,
+                  display: 'grid',
+                  gridTemplateColumns: col.items.length > 5 ? '1fr 1fr' : '1fr',
+                  gap: '12px 24px'
+                }}>
                   {col.items.map((subItem, idx) => (
                     <li key={idx}>
                       <span
@@ -314,7 +306,7 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
           >
             {aboutMenuColumns.map((col) => (
               <div key={col.id} style={{ display: 'flex', flexDirection: 'column' }}>
-                <h4 
+                <h4
                   style={{
                     fontSize: '0.94rem',
                     fontWeight: 600,

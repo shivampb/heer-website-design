@@ -114,7 +114,7 @@ export default function ManufacturingPage() {
 
   return (
     <div style={{
-      backgroundColor: '#ffffff',
+      backgroundColor: 'var(--bg-primary)',
       color: '#000000',
       minHeight: '100vh',
       width: '100vw',
@@ -123,13 +123,13 @@ export default function ManufacturingPage() {
       paddingBottom: '80px',
       fontFamily: 'var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif)'
     }}>
-      
+
       {/* Full Width Screen Container */}
       <div style={{ width: '100%', padding: '0 clamp(16px, 3vw, 48px)' }}>
-        
+
         {/* Top Header Section */}
-        <div style={{ marginBottom: '44px', maxWidth: '1600px', margin: '0 auto 44px' }}>
-          
+        <div style={{ marginBottom: '44px', width: '100%', margin: '0 auto 44px' }}>
+
           {/* Top Pill Badge */}
           <div style={{ marginBottom: '16px' }}>
             <span style={{
@@ -188,7 +188,7 @@ export default function ManufacturingPage() {
           gap: '20px',
           width: '100%'
         }}>
-          
+
           {/* Row 1: Large (60%) + Small (40%) */}
           <div style={{
             display: 'grid',

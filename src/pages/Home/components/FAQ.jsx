@@ -35,6 +35,8 @@ export default function FAQ() {
             return (
               <motion.div
                 key={item.id}
+                onMouseEnter={() => setOpenIndex(index)}
+                onMouseLeave={() => setOpenIndex(-1)}
                 style={{
                   backgroundColor: '#ffffff',
                   borderRadius: '10px',

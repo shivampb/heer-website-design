@@ -15,51 +15,51 @@ export const WELLNESS_DATA = {
     gallery: [
       {
         id: 1,
-        title: "MAIN BOARDS",
-        subtitle: "32-Bit Closed-Loop Architecture",
+        title: "ELEVATOR CONTROLLER CABINETS",
+        subtitle: "32-Bit Multi-Processor Logic",
         image: "/products/controller-cabinet.jpg",
-        categoryId: "main-boards",
+        categoryId: "control-panels",
         desc: "High-speed multi-processor elevator controller cabinets engineered with proprietary phase failure relays and zero-nuisance contactor logic."
       },
       {
         id: 2,
-        title: "CONTROL PANELS",
-        subtitle: "Touch COP & LOP Arrays",
-        image: "/products/PXL_20250829_070627798.jpg",
+        title: "INTEGRATED VVVF DRIVES & ARD",
+        subtitle: "Direct Torque Control Architecture",
+        image: "/products/PXL_20250618_145429848.jpg",
         categoryId: "control-panels",
-        desc: "Tempered obsidian black and champagne gold touch interfaces engineered for millimeter-perfect tactile response and luxury lobby harmony."
+        desc: "Precision VVVF vector drives with automatic rescue operation and regenerative power backup for heavy-duty commercial lifts."
       },
       {
         id: 3,
-        title: "PUSH BUTTONS",
-        subtitle: "Tactile & LED Illumination",
-        image: "/products/touch-lop-button.jpg",
-        categoryId: "push-buttons",
-        desc: "Robust stainless steel and tempered glass elevator buttons built for high-traffic commercial durability and ultra-crisp LED illumination."
+        title: "SERIAL INSPECTION & IOT HUBS",
+        subtitle: "CAN-Bus Telemetry Networks",
+        image: "/products/PXL_20260703_123745971.jpg",
+        categoryId: "control-panels",
+        desc: "Car-top serial communication nodes, spike protection relays, and 24/7 cloud diagnostics nodes built for standardized plug-and-play wiring."
       },
       {
         id: 4,
-        title: "DISPLAYS",
-        subtitle: "High-Definition Digital Indicators",
-        image: "/products/glass-display-lop.jpg",
-        categoryId: "displays",
-        desc: "Ultra-clear multi-segment and TFT LCD floor direction screens offering instantaneous elevator position feedback and direction arrows."
+        title: "TOUCH CAR OPERATING PANELS (COP)",
+        subtitle: "Obsidian & Champagne Gold Glass",
+        image: "/products/PXL_20250829_070627798.jpg",
+        categoryId: "cop-lop",
+        desc: "Tempered obsidian black and champagne gold touch interfaces engineered for millimeter-perfect tactile response and luxury lobby harmony."
       },
       {
         id: 5,
-        title: "OTHER PRODUCTS",
-        subtitle: "Inspection & Safety Accessories",
-        image: "/products/SYNMATIC.jpg",
-        categoryId: "other-products",
-        desc: "Specialized inspection boxes, magnetic sensors, limit switches, and IoT telemetry modules built for seamless plug-and-play integration."
+        title: "LANDING CALL PANELS & BUTTONS",
+        subtitle: "Tactile Micro-Stroke & LED Rings",
+        image: "/products/touch-lop-button.jpg",
+        categoryId: "cop-lop",
+        desc: "Curved glass hall stations and stainless steel micro-stroke push buttons built with braille embossing and high-traffic durability."
       },
       {
         id: 6,
-        title: "COMPLETE SYSTEMS",
-        subtitle: "Plug & Play Packages",
-        image: "/products/PXL_20260610_125845955~2.jpg",
-        categoryId: "all",
-        desc: "Matched sets of controller cabinets, car operating panels, landing call boxes, and wiring harnesses standardized across 15,000+ elevators."
+        title: "DIGITAL FLOOR TELEMETRY DISPLAYS",
+        subtitle: "HD Direction Indicators",
+        image: "/products/glass-display-lop.jpg",
+        categoryId: "cop-lop",
+        desc: "Crisp multi-segment OLED and TFT LCD floor direction screens offering instantaneous elevator position feedback and direction arrows."
       }
     ]
   },

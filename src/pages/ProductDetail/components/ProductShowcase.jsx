@@ -128,6 +128,7 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, ease: 'easeOut' }}
+          className="product-showcase-hero"
           style={{
             backgroundColor: '#f2f2f4',
             borderRadius: '28px',
@@ -208,7 +209,7 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
         <div style={{ marginTop: '70px', padding: '0 24px' }}>
           
           {/* Tab Bar: FOCUS | MAIN FEATURES | WARNINGS */}
-          <div style={{
+          <div className="product-showcase-tabs" style={{
             display: 'flex',
             gap: '40px',
             borderBottom: '1px solid rgba(0,0,0,0.12)',
@@ -556,6 +557,25 @@ export default function ProductDetailPage({ product, onBack, onInquire }) {
           )}
         </div>
 
+        <style>{`
+          @media (max-width: 991px) {
+            .product-showcase-hero {
+              padding: 36px 28px !important;
+              gap: 24px !important;
+            }
+          }
+          @media (max-width: 640px) {
+            .product-showcase-hero {
+              padding: 24px 18px !important;
+            }
+            .product-showcase-tabs {
+              gap: 18px !important;
+              overflow-x: auto !important;
+              white-space: nowrap !important;
+              padding-bottom: 8px !important;
+            }
+          }
+        `}</style>
       </div>
     </div>
   );

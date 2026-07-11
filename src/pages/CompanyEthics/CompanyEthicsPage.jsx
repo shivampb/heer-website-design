@@ -54,11 +54,11 @@ export default function CompanyEthicsPage() {
   ];
 
   return (
-    <div style={{ backgroundColor: '#ffffff', color: '#000000', overflowX: 'hidden', width: '100vw', paddingTop: '65px', fontFamily: 'var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif)' }}>
+    <div style={{ backgroundColor: 'var(--bg-primary)', color: '#000000', overflowX: 'hidden', width: '100vw', paddingTop: '65px', fontFamily: 'var(--font-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif)' }}>
       
       {/* SECTION 1: SCANDINAVIAN EDITORIAL HERO & PANORAMIC SCREEN */}
-      <section style={{ width: '100vw', padding: 'clamp(20px, 3vw, 36px) clamp(24px, 6vw, 100px) 60px clamp(24px, 6vw, 100px)' }}>
-        <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
+      <section style={{ width: '100vw', padding: 'clamp(20px, 3vw, 36px) clamp(24px, 5vw, 80px) 60px clamp(24px, 5vw, 80px)' }}>
+        <div style={{ width: '100%', margin: '0 auto' }}>
           
           {/* Top Editorial Label & Hero Headline */}
           <div style={{ marginBottom: '48px', maxWidth: '1100px' }}>
@@ -66,14 +66,15 @@ export default function CompanyEthicsPage() {
               Corporate Responsibility & Manufacturing Ethics
             </div>
             <h1 style={{
-              fontSize: 'clamp(2.6rem, 5.8vw, 5.4rem)',
+              fontSize: 'clamp(2.4rem, 4.4vw, 4.2rem)',
               fontWeight: 500,
               color: '#000000',
-              lineHeight: 1.05,
+              lineHeight: 1.12,
               letterSpacing: '-0.04em',
-              fontFamily: 'var(--font-heading)'
+              fontFamily: 'var(--font-heading)',
+              maxWidth: '920px'
             }}>
-              We believe in engineering fail-safe, sustainable vertical transportation and elevator control systems for all people.
+              Engineering fail-safe, sustainable vertical transport & elevator electronics.
             </h1>
           </div>
 
@@ -83,6 +84,7 @@ export default function CompanyEthicsPage() {
             height: 'clamp(380px, 60vh, 720px)',
             overflow: 'hidden',
             backgroundColor: '#111111',
+            borderRadius: '0px',
             marginBottom: '80px'
           }}>
             <img
@@ -124,30 +126,30 @@ export default function CompanyEthicsPage() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '40px',
+            gap: 'clamp(30px, 4vw, 50px)',
             borderBottom: '1px solid rgba(0, 0, 0, 0.15)',
             paddingBottom: '80px',
             marginBottom: '100px'
           }}>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>Years of Manufacturing Excellence</div>
-              <div style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>27</div>
+              <div style={{ fontSize: 'clamp(2.5rem, 3.8vw, 3.8rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>27</div>
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>Global Safety Compliance Certifications</div>
-              <div style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>9</div>
+              <div style={{ fontSize: 'clamp(2.5rem, 3.8vw, 3.8rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>9</div>
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>Countries with Active Deployments</div>
-              <div style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>28</div>
+              <div style={{ fontSize: 'clamp(2.5rem, 3.8vw, 3.8rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>28</div>
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>Less Idle Energy via Smart Standby</div>
-              <div style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>60%</div>
+              <div style={{ fontSize: 'clamp(2.5rem, 3.8vw, 3.8rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>60%</div>
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', color: '#777777', fontWeight: 500, marginBottom: '12px' }}>Thermal Burn-in Quality Inspection</div>
-              <div style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>100%</div>
+              <div style={{ fontSize: 'clamp(2.5rem, 3.8vw, 3.8rem)', fontWeight: 400, color: '#000000', letterSpacing: '-0.04em', lineHeight: 1 }}>100%</div>
             </div>
           </div>
 
@@ -155,8 +157,8 @@ export default function CompanyEthicsPage() {
       </section>
 
       {/* SECTION 2: EDITORIAL ACCORDION PILLARS (Reiulf Ramstad Minimalist List Style) */}
-      <section style={{ width: '100vw', padding: '0 clamp(24px, 6vw, 100px) 100px clamp(24px, 6vw, 100px)' }}>
-        <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
+      <section style={{ width: '100vw', padding: '0 clamp(24px, 5vw, 80px) 100px clamp(24px, 5vw, 80px)' }}>
+        <div style={{ width: '100%', margin: '0 auto' }}>
           
           {/* Section Header */}
           <div style={{
@@ -182,7 +184,8 @@ export default function CompanyEthicsPage() {
               return (
                 <div 
                   key={pillar.id}
-                  style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.15)' }}
+                  style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.15)', transition: 'background-color 0.25s ease' }}
+                  onMouseEnter={() => setOpenAccordion(pillar.id)}
                 >
                   <button
                     onClick={() => setOpenAccordion(isOpen ? -1 : pillar.id)}
@@ -235,8 +238,8 @@ export default function CompanyEthicsPage() {
       </section>
 
       {/* SECTION 3: EDITORIAL PROJECTS & SUSTAINABLE PRACTICE SHOWCASE */}
-      <section style={{ width: '100vw', padding: '0 clamp(24px, 6vw, 100px) 120px clamp(24px, 6vw, 100px)' }}>
-        <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
+      <section style={{ width: '100vw', padding: '0 clamp(24px, 5vw, 80px) 120px clamp(24px, 5vw, 80px)' }}>
+        <div style={{ width: '100%', margin: '0 auto' }}>
           
           <div style={{
             display: 'grid',

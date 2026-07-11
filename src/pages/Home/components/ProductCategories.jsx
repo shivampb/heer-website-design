@@ -140,31 +140,31 @@ export default function ProductCategories({ onBookSpecialist }) {
   const categories = [
     {
       id: 1,
-      title: "MAIN BOARDS",
+      title: "CONTROL PANELS & CABINETS",
       desc: "32-Bit closed-loop multi-processor elevator controller cabinets equipped with proprietary phase failure relays.",
       image: "/products/controller-cabinet.jpg",
-      categoryId: "main-boards"
+      categoryId: "control-panels"
     },
     {
       id: 2,
-      title: "CONTROL PANELS",
-      desc: "Tempered obsidian black & champagne gold touch COP & LOP interfaces engineered with zero-jerk logic.",
-      image: "/products/PXL_20250829_070627798.jpg",
+      title: "DRIVES, SERIAL & IOT HUBS",
+      desc: "Integrated VVVF vector drives, CAN-Bus serial communication boards, and 24/7 cloud telemetry nodes.",
+      image: "/products/PXL_20250618_145429848.jpg",
       categoryId: "control-panels"
     },
     {
       id: 3,
-      title: "PUSH BUTTONS",
-      desc: "Heavy-duty stainless steel and glass elevator push buttons built for high-traffic durability and LED illumination.",
-      image: "/products/touch-lop-button.jpg",
-      categoryId: "push-buttons"
+      title: "COP & LOP TOUCH PANELS",
+      desc: "Tempered obsidian black & champagne gold car operating panels and landing call stations engineered with zero-jerk logic.",
+      image: "/products/PXL_20250829_070627798.jpg",
+      categoryId: "cop-lop"
     },
     {
       id: 4,
-      title: "DISPLAYS & OTHERS",
-      desc: "Curved black glass touch landing panels, digital floor direction screens, and IoT telemetry inspection boxes.",
+      title: "PUSH BUTTONS & FLOOR DISPLAYS",
+      desc: "Stainless steel micro-stroke tactile elevator buttons, braille audio announcers, and high-contrast digital floor screens.",
       image: "/products/glass-display-lop.jpg",
-      categoryId: "displays"
+      categoryId: "cop-lop"
     }
   ];
 

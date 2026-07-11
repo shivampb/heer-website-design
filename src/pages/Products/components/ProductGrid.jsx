@@ -5,20 +5,17 @@ import { ArrowRight, CheckCircle2, Sparkles, Filter, ChevronRight, Search, Layer
 
 export const categories = [
   { id: 'all', label: 'All Products' },
-  { id: 'main-boards', label: 'Main Boards' },
   { id: 'control-panels', label: 'Control Panels' },
-  { id: 'push-buttons', label: 'Push Buttons' },
-  { id: 'displays', label: 'Displays' },
-  { id: 'other-products', label: 'Other Products' }
+  { id: 'cop-lop', label: 'COP & LOP Panels' }
 ];
 
 export const allProducts = [
-  // MAIN BOARDS
+  // SECTION 1: CONTROL PANELS
   {
     id: 'p1',
     code: 'HEER-CTRL-32',
     title: '32-Bit Microprocessor Controller Cabinet',
-    category: 'main-boards',
+    category: 'control-panels',
     subCategory: 'HEER-CTRL-32',
     spec: 'Dual Core | Zero Jerk Acceleration | VVVF Vector Control',
     price: '$4,800',
@@ -28,7 +25,7 @@ export const allProducts = [
     id: 'p2',
     code: 'HEER-SER-01',
     title: 'Car Top Serial Inspection Board',
-    category: 'main-boards',
+    category: 'control-panels',
     subCategory: 'HEER-SER-01',
     spec: 'CAN-Bus High Speed | Plug & Play Harness Matrix',
     price: '$890',
@@ -38,7 +35,7 @@ export const allProducts = [
     id: 'p3',
     code: 'HEER-SER-02',
     title: 'Landing Serial Communication Node Hub',
-    category: 'main-boards',
+    category: 'control-panels',
     subCategory: 'HEER-SER-02',
     spec: 'Low-Voltage Telemetry Hub | Shielded RS485 Ports',
     price: '$450',
@@ -48,7 +45,7 @@ export const allProducts = [
     id: 'p4',
     code: 'HEER-INV-01',
     title: 'Integrated VVVF Vector Drive & ARD Unit',
-    category: 'main-boards',
+    category: 'control-panels',
     subCategory: 'HEER-INV-01',
     spec: 'Direct Torque Control | Automatic Rescue Power Backup',
     price: '$3,200',
@@ -58,95 +55,17 @@ export const allProducts = [
     id: 'p5',
     code: 'HEER-DEST-01',
     title: 'Multi-Tower Destination Control Hub',
-    category: 'main-boards',
+    category: 'control-panels',
     subCategory: 'HEER-DEST-01',
     spec: 'AI Passenger Routing Logic | 64-Floor Allocation Hub',
     price: '$3,800',
     image: '/products/1782653245464.png'
   },
-
-  // CONTROL PANELS
-  {
-    id: 'p6',
-    code: 'HEER-FIX-01',
-    title: 'Obsidian Glass Touch COP Panel',
-    category: 'control-panels',
-    subCategory: 'HEER-FIX-01',
-    spec: 'Tempered Glass | Gold Rim | High-Speed Micro-Touch',
-    price: '$1,450',
-    image: '/products/PXL_20260610_125817426.jpg'
-  },
-  {
-    id: 'p7',
-    code: 'HEER-FIX-02',
-    title: 'Champagne Gold Landing LOP Array',
-    category: 'control-panels',
-    subCategory: 'HEER-FIX-02',
-    spec: 'Multi-Floor Matrix | High Contrast LED Digital Arrow',
-    price: '$620',
-    image: '/products/PXL_20260617_060017914.jpg'
-  },
-  {
-    id: 'p8',
-    code: 'HEER-KEY-01',
-    title: 'Direct Touch Diagnostics Keypad',
-    category: 'control-panels',
-    subCategory: 'HEER-KEY-01',
-    spec: 'Handheld Parameter Programmer | High-Contrast Readout',
-    price: '$240',
-    image: '/products/1782654258745.png'
-  },
-
-  // PUSH BUTTONS
-  {
-    id: 'p9',
-    code: 'HEER-BTN-01',
-    title: 'Micro-Stroke Stainless Push Buttons',
-    category: 'push-buttons',
-    subCategory: 'HEER-BTN-01',
-    spec: 'Tactile Click Feedback | Braille Embedded | LED Ring',
-    price: '$120',
-    image: '/products/IMG-20260523-WA0053.jpg'
-  },
-  {
-    id: 'p10',
-    code: 'HEER-FIX-ACC',
-    title: 'Braille & Audio Announcer Accessory',
-    category: 'push-buttons',
-    subCategory: 'HEER-FIX-ACC',
-    spec: 'Multi-Language Voice | High Clarity Speaker Chime Hub',
-    price: '$290',
-    image: '/products/IMG-20260523-WA0054.jpg'
-  },
-
-  // DISPLAYS
-  {
-    id: 'p11',
-    code: 'HEER-DIS-01',
-    title: 'High-Contrast OLED Floor Display',
-    category: 'displays',
-    subCategory: 'HEER-DIS-01',
-    spec: '7-Inch IPS Screen | Custom Telemetry & Weather Graphics',
-    price: '$340',
-    image: '/products/PXL_20260617_060025536.jpg'
-  },
-  {
-    id: 'p12',
-    code: 'HEER-APP-01',
-    title: 'Heer Smart System Control App Gateway',
-    category: 'displays',
-    subCategory: 'HEER-APP-01',
-    spec: 'Bluetooth & WiFi Diagnostic Interface Dongle',
-    price: '$750',
-    image: '/products/1782586074854.png'
-  },
-
-  // OTHER PRODUCTS
   {
     id: 'p13',
     code: 'CL24',
     title: 'Spike Protection & Safety Relay Array (CL24)',
-    category: 'other-products',
+    category: 'control-panels',
     subCategory: 'CL24',
     spec: 'Multi-Stage Surge Protection | 24V Line Fast Trip Breaker',
     price: '$310',
@@ -156,7 +75,7 @@ export const allProducts = [
     id: 'p14',
     code: 'GSM105',
     title: 'Digital GSM & Intercom Emergency Communicator (GSM105)',
-    category: 'other-products',
+    category: 'control-panels',
     subCategory: 'GSM105',
     spec: 'HD Voice | Dual SIM Backup | Instant Emergency Relay',
     price: '$580',
@@ -166,7 +85,7 @@ export const allProducts = [
     id: 'p15',
     code: 'SNV201',
     title: 'Precision Optical Pulse Encoder & Tensioner Kit (SNV201)',
-    category: 'other-products',
+    category: 'control-panels',
     subCategory: 'SNV201',
     spec: 'High Accuracy Rotary Encoder | Vibration Damped Pulley',
     price: '$160',
@@ -176,7 +95,7 @@ export const allProducts = [
     id: 'p16',
     code: 'HEER-DRV-01',
     title: 'High-Torque Synchronous Door Motor & Drive',
-    category: 'other-products',
+    category: 'control-panels',
     subCategory: 'HEER-DRV-01',
     spec: 'Heavy Duty Commercial Grade | Ultra Low Thermal Heat',
     price: '$920',
@@ -186,21 +105,98 @@ export const allProducts = [
     id: 'p17',
     code: 'HEER-COMM-IOT',
     title: 'Real-Time Cloud Supervision IoT Gateway',
-    category: 'other-products',
+    category: 'control-panels',
     subCategory: 'HEER-COMM-IOT',
     spec: '24/7 Cellular Telemetry | Predictive Diagnostics Cloud Node',
     price: '$1,850',
     image: '/products/PXL_20250829_075537037~2.jpg'
+  },
+
+  // SECTION 2: COP & LOP PANELS
+  {
+    id: 'p6',
+    code: 'HEER-FIX-01',
+    title: 'Obsidian Glass Touch COP Panel',
+    category: 'cop-lop',
+    subCategory: 'HEER-FIX-01',
+    spec: 'Tempered Glass | Gold Rim | High-Speed Micro-Touch',
+    price: '$1,450',
+    image: '/products/PXL_20260610_125817426.jpg'
+  },
+  {
+    id: 'p7',
+    code: 'HEER-FIX-02',
+    title: 'Champagne Gold Landing LOP Array',
+    category: 'cop-lop',
+    subCategory: 'HEER-FIX-02',
+    spec: 'Multi-Floor Matrix | High Contrast LED Digital Arrow',
+    price: '$620',
+    image: '/products/PXL_20260617_060017914.jpg'
+  },
+  {
+    id: 'p8',
+    code: 'HEER-KEY-01',
+    title: 'Direct Touch Diagnostics Keypad',
+    category: 'cop-lop',
+    subCategory: 'HEER-KEY-01',
+    spec: 'Handheld Parameter Programmer | High-Contrast Readout',
+    price: '$240',
+    image: '/products/1782654258745.png'
+  },
+  {
+    id: 'p9',
+    code: 'HEER-BTN-01',
+    title: 'Micro-Stroke Stainless Push Buttons',
+    category: 'cop-lop',
+    subCategory: 'HEER-BTN-01',
+    spec: 'Tactile Click Feedback | Braille Embedded | LED Ring',
+    price: '$120',
+    image: '/products/IMG-20260523-WA0053.jpg'
+  },
+  {
+    id: 'p10',
+    code: 'HEER-FIX-ACC',
+    title: 'Braille & Audio Announcer Accessory',
+    category: 'cop-lop',
+    subCategory: 'HEER-FIX-ACC',
+    spec: 'Multi-Language Voice | High Clarity Speaker Chime Hub',
+    price: '$290',
+    image: '/products/IMG-20260523-WA0054.jpg'
+  },
+  {
+    id: 'p11',
+    code: 'HEER-DIS-01',
+    title: 'High-Contrast OLED Floor Display',
+    category: 'cop-lop',
+    subCategory: 'HEER-DIS-01',
+    spec: '7-Inch IPS Screen | Custom Telemetry & Weather Graphics',
+    price: '$340',
+    image: '/products/PXL_20260617_060025536.jpg'
+  },
+  {
+    id: 'p12',
+    code: 'HEER-APP-01',
+    title: 'Heer Smart System Control App Gateway',
+    category: 'cop-lop',
+    subCategory: 'HEER-APP-01',
+    spec: 'Bluetooth & WiFi Diagnostic Interface Dongle',
+    price: '$750',
+    image: '/products/1782586074854.png'
   }
 ];
 
 export const categoryMap = {
   all: { id: 'all', label: 'All Products', subCategories: [] },
-  'main-boards': { id: 'main-boards', label: 'Main Boards', subCategories: ['All Main Boards', 'HEER-CTRL-32', 'HEER-SER-01', 'HEER-SER-02', 'HEER-INV-01', 'HEER-DEST-01'] },
-  'control-panels': { id: 'control-panels', label: 'Control Panels', subCategories: ['All Control Panels', 'HEER-FIX-01', 'HEER-FIX-02', 'HEER-KEY-01'] },
-  'push-buttons': { id: 'push-buttons', label: 'Push Buttons', subCategories: ['All Push Buttons', 'HEER-BTN-01', 'HEER-FIX-ACC'] },
-  displays: { id: 'displays', label: 'Displays', subCategories: ['All Displays', 'HEER-DIS-01', 'HEER-APP-01'] },
-  'other-products': { id: 'other-products', label: 'Other Products', subCategories: ['All Other Products', 'CL24', 'GSM105', 'SNV201', 'HEER-DRV-01', 'HEER-COMM-IOT'] }
+  'control-panels': { 
+    id: 'control-panels', 
+    label: 'Control Panels', 
+    subCategories: ['All Control Panels', 'HEER-CTRL-32', 'HEER-INV-01', 'HEER-DEST-01', 'HEER-SER-01', 'HEER-SER-02', 'CL24', 'GSM105', 'SNV201', 'HEER-DRV-01', 'HEER-COMM-IOT'] 
+  },
+  'cop-lop': { 
+    id: 'cop-lop', 
+    label: 'COP & LOP Panels', 
+    subCategories: ['All COP & LOP Panels', 'HEER-FIX-01', 'HEER-FIX-02', 'HEER-KEY-01', 'HEER-BTN-01', 'HEER-FIX-ACC', 'HEER-DIS-01', 'HEER-APP-01'] 
+  }
 };
 
 export default function ProductGridPage({ selectedCategory = 'all', onSelectCategory, onProductClick, onBookClick }) {
@@ -456,10 +452,10 @@ export default function ProductGridPage({ selectedCategory = 'all', onSelectCate
         </div>
 
         {/* lapakbaju inspired layout: Left Sidebar + Right Main Showcase */}
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '36px', alignItems: 'flex-start' }}>
+        <div className="product-grid-layout" style={{ display: 'flex', flexDirection: 'row', gap: '36px', alignItems: 'flex-start' }}>
           
           {/* Left Category & Filter Sidebar (lapakbaju style) */}
-          <div style={{
+          <div className="product-sidebar" style={{
             width: '270px',
             flexShrink: 0,
             backgroundColor: '#ffffff',
@@ -674,8 +670,8 @@ export default function ProductGridPage({ selectedCategory = 'all', onSelectCate
                         </button>
                       </div>
 
-                      {/* Exactly 3 Products Grid for this Category Row */}
-                      <div style={{
+                      {/* Exactly 1 Row (3 Products) Grid for this Category Row */}
+                      <div className="products-card-grid" style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))',
                         backgroundColor: '#ffffff'
@@ -699,6 +695,7 @@ export default function ProductGridPage({ selectedCategory = 'all', onSelectCate
               <div style={{ margin: '0 5px' }}>
                 <motion.div
                   layout
+                  className="products-card-grid"
                   style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))',
@@ -772,6 +769,26 @@ export default function ProductGridPage({ selectedCategory = 'all', onSelectCate
           </button>
         </div>
 
+        <style>{`
+          @media (max-width: 991px) {
+            .product-grid-layout {
+              flex-direction: column !important;
+              gap: 24px !important;
+            }
+            .product-sidebar {
+              width: 100% !important;
+              position: static !important;
+            }
+            .products-card-grid {
+              grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) !important;
+            }
+          }
+          @media (max-width: 640px) {
+            .products-card-grid {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        `}</style>
       </div>
     </div>
   );
