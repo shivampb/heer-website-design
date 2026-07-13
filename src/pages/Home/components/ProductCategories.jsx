@@ -34,7 +34,6 @@ function CategoryCard({ category, index, hoveredIndex, setHoveredIndex }) {
       }}
       className="category-card"
     >
-      {/* Background Photography with Liquid Spring Zoom */}
       <img
         src={category.image}
         alt={category.title}
@@ -51,7 +50,6 @@ function CategoryCard({ category, index, hoveredIndex, setHoveredIndex }) {
         }}
       />
 
-      {/* Subtle Bottom-Only Vignette for Text Contrast (No Black Overlay over Photo) */}
       <div
         style={{
           position: 'absolute',
@@ -61,7 +59,6 @@ function CategoryCard({ category, index, hoveredIndex, setHoveredIndex }) {
         }}
       />
 
-      {/* Sweeping Liquid Glass Shimmer Wave */}
       <div
         style={{
           position: 'absolute',
@@ -77,7 +74,6 @@ function CategoryCard({ category, index, hoveredIndex, setHoveredIndex }) {
         }}
       />
 
-      {/* Bottom Title Overlay */}
       <div
         style={{
           position: 'relative',
@@ -171,7 +167,6 @@ export default function ProductCategories({ onBookSpecialist }) {
   return (
     <section id="mentors" className="section-padding" style={{ backgroundColor: '#faf8f2' }}>
       <div style={{ width: '100%', padding: '0 5px', margin: '0 auto' }}>
-        {/* Minimal Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '56px' }}>
           <div className="wellness-tag">✦ OUR PRODUCT CATEGORIES</div>
           <h2 style={{
@@ -185,7 +180,6 @@ export default function ProductCategories({ onBookSpecialist }) {
           </h2>
         </div>
 
-        {/* Responsive Flex Accordion Grid tightly joined with 5px margin across entire width */}
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',

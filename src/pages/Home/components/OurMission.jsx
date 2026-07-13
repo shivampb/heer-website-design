@@ -26,34 +26,31 @@ function Word({ children, progress, range, isBold }) {
   );
 }
 
+const panels = [
+  {
+    id: 'control-panels',
+    name: 'Control Panel',
+    label: 'CONTROLLER CABINETS & DRIVE SYSTEMS',
+    tagline: '32-bit multi-processor architecture with open-parameter access, non-proprietary firmware, and EN81-compliant safety logic.',
+    image: '/products/PXL_20250618_145413258.jpg',
+    path: '/products/control-panels'
+  },
+  {
+    id: 'cop-lop',
+    name: 'LOP & COP',
+    label: 'LANDING & CAR OPERATING PANELS',
+    tagline: 'Obsidian glass touch panels, stainless micro-stroke buttons, and high-contrast floor telemetry displays.',
+    image: '/products/PXL_20250829_070627798.jpg',
+    path: '/products/cop-lop'
+  }
+];
+
 export default function OurMission({ onMeetSpecialists }) {
   const navigate = useNavigate();
-  const { tag, headlineText, boldText, trailingText, gallery } = WELLNESS_DATA.philosophy;
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const { tag, headlineText, boldText, trailingText } = WELLNESS_DATA.philosophy;
+  const [hovered, setHovered] = useState(null);
   const containerRef = useRef(null);
   const sectionRef = useRef(null);
-  
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.philosophy-card-gsap', 
-        { y: 70, opacity: 0, rotateX: 12 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          rotateX: 0, 
-          stagger: 0.18, 
-          duration: 1.15, 
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 75%'
-          }
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -68,6 +65,7 @@ export default function OurMission({ onMeetSpecialists }) {
   return (
     <section id="philosophy" ref={sectionRef} className="section-padding" style={{ backgroundColor: 'var(--bg-primary)' }}>
       <div style={{ width: '100%', padding: '0 5px', margin: '0 auto', textAlign: 'center' }}>
+
         {/* Tag Pill */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -108,167 +106,132 @@ export default function OurMission({ onMeetSpecialists }) {
           })}
         </p>
 
-        {/* Clean 3-Column Grid of Cards with 10px total gap, 5px width margin, and 10px curve border */}
-        {/* Clean Minimalist 2-Row Architectural Grid with Taller Photos & 2-Card Hover Expansion */}
-        <style>{`
-          .mission-rows-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto 64px auto;
-            padding: 0 16px;
-          }
-          .mission-row-grid {
-            display: grid;
-            gap: 20px;
-            width: 100%;
-            transition: grid-template-columns 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-          }
-          @media (max-width: 960px) {
-            .mission-row-grid {
-              grid-template-columns: 1fr !important;
-              gap: 16px;
-            }
-          }
-        `}</style>
-        <div className="mission-rows-wrapper">
-          {/* We render exactly 2 rows of cards (3 cards per row) */}
-          {[gallery.slice(0, 3), gallery.slice(3, 6)].map((rowItems, rowIndex) => {
-            // Determine active grid columns based on which card is hovered inside this row
-            const hoveredInThisRow = rowItems.findIndex((_, idx) => hoveredCard === rowIndex * 3 + idx);
-            let gridCols = '1fr 1fr 1fr';
-            if (hoveredInThisRow === 0) gridCols = '2.15fr 0.925fr 0.925fr';
-            else if (hoveredInThisRow === 1) gridCols = '0.925fr 2.15fr 0.925fr';
-            else if (hoveredInThisRow === 2) gridCols = '0.925fr 0.925fr 2.15fr';
-
-            return (
-              <div
-                key={rowIndex}
-                className="mission-row-grid"
-                style={{ gridTemplateColumns: gridCols }}
-              >
-                {rowItems.map((item, colIndex) => {
-                  const globalIdx = rowIndex * 3 + colIndex;
-                  const isHovered = hoveredCard === globalIdx;
-                  const isRowActive = hoveredInThisRow !== -1;
-                  const isHiddenByRowHover = isRowActive && !isHovered;
-
-                  return (
-                    <div
-                      key={item.id}
-                      className="philosophy-card-gsap"
-                      onMouseEnter={() => setHoveredCard(globalIdx)}
-                      onMouseLeave={() => setHoveredCard(null)}
-                      onClick={() => navigate(item.categoryId ? `/products/${item.categoryId}` : '/products')}
-                      style={{
-                        position: 'relative',
-                        height: '480px',
-                        backgroundColor: '#ffffff',
-                        borderRadius: '10px',
-                        overflow: 'hidden',
-                        boxShadow: isHovered ? '0 28px 60px rgba(0, 0, 0, 0.18)' : '0 6px 24px rgba(0, 0, 0, 0.05)',
-                        border: '1px solid rgba(0, 0, 0, 0.06)',
-                        transition: 'all 0.55s cubic-bezier(0.16, 1, 0.3, 1)',
-                        transform: isHovered ? 'translateY(-6px)' : 'translateY(0px)',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      {/* Product Photo - Exactly 330px when row not hovered, sweeps down to 100% height across the entire card when hovered or when adjacent card in row is hovered! */}
-                      <div style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: (isHovered || isHiddenByRowHover) ? '100%' : '330px',
-                        overflow: 'hidden',
-                        backgroundColor: '#111111',
-                        borderRadius: (isHovered || isHiddenByRowHover) ? '10px' : '10px 10px 0 0',
-                        transition: 'all 0.55s cubic-bezier(0.16, 1, 0.3, 1)',
-                        zIndex: 1
-                      }}>
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            display: 'block',
-                            transform: isHovered ? 'scale(1.06)' : 'scale(1)',
-                            transition: 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)'
-                          }}
-                        />
-                        {/* Subtle Shimmer on Hover */}
-                        <div style={{
-                          position: 'absolute',
-                          top: 0,
-                          left: isHovered ? '160%' : '-160%',
-                          width: '120%',
-                          height: '100%',
-                          background: 'linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0) 100%)',
-                          transform: 'skewX(-25deg)',
-                          transition: 'left 0.75s ease',
-                          pointerEvents: 'none'
-                        }} />
-                      </div>
-
-                      {/* Bottom Text Box - Completely removed/hidden when another card in this row is hovered (isHiddenByRowHover), otherwise clean white or cinematic floating gradient! */}
-                      <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: isHiddenByRowHover ? '0px' : (isHovered ? '170px' : '150px'),
-                        opacity: isHiddenByRowHover ? 0 : 1,
-                        pointerEvents: isHiddenByRowHover ? 'none' : 'auto',
-                        overflow: 'hidden',
-                        padding: isHiddenByRowHover ? '0 26px' : '22px 26px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'flex-end',
-                        background: isHovered 
-                          ? 'linear-gradient(to top, rgba(10,12,8,0.94) 0%, rgba(10,12,8,0.78) 55%, transparent 100%)' 
-                          : '#ffffff',
-                        transition: 'all 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
-                        zIndex: 2
-                      }}>
-                        <div>
-                          <h4 style={{
-                            color: isHovered ? '#ffffff' : '#111111',
-                            fontSize: isHovered ? '1.38rem' : '1.22rem',
-                            fontWeight: 700,
-                            marginBottom: '8px',
-                            letterSpacing: '-0.02em',
-                            lineHeight: 1.25,
-                            transition: 'all 0.35s ease',
-                            textShadow: isHovered ? '0 2px 6px rgba(0,0,0,0.6)' : 'none'
-                          }}>
-                            {item.title}
-                          </h4>
-                          <p style={{
-                            color: isHovered ? 'rgba(255, 255, 255, 0.88)' : '#666666',
-                            fontSize: '0.94rem',
-                            lineHeight: 1.6,
-                            margin: 0,
-                            transition: 'color 0.35s ease'
-                          }}>
-                            {item.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+        {/* ── Vega-style 2-Panel Product Showcase ── */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            width: '100%',
+            marginBottom: '64px'
+          }}
+        >
+          {panels.map((panel, i) => (
+            <motion.div
+              key={panel.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              onClick={() => navigate(panel.path)}
+              style={{
+                cursor: 'pointer',
+                overflow: 'hidden',
+                borderRight: i === 0 ? '1px solid rgba(0,0,0,0.08)' : 'none',
+                textAlign: 'left'
+              }}
+            >
+              {/* Photo */}
+              <div style={{
+                width: '100%',
+                height: 'clamp(280px, 38vw, 520px)',
+                overflow: 'hidden',
+                backgroundColor: '#111111',
+                position: 'relative'
+              }}>
+                <img
+                  src={panel.image}
+                  alt={panel.name}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    display: 'block',
+                    transform: hovered === i ? 'scale(1.04)' : 'scale(1)',
+                    transition: 'transform 0.75s cubic-bezier(0.16, 1, 0.3, 1)'
+                  }}
+                />
               </div>
-            );
-          })}
+
+              {/* Text Row Below Photo */}
+              <div style={{
+                padding: 'clamp(18px, 2.5vw, 32px) clamp(18px, 3.5vw, 44px)',
+                borderTop: '1px solid rgba(0,0,0,0.1)',
+                backgroundColor: 'var(--bg-primary)',
+                display: 'flex',
+                alignItems: 'flex-start',
+                justifyContent: 'space-between',
+                gap: '20px'
+              }}>
+                {/* Left text */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <h2 style={{
+                    fontSize: 'clamp(1.7rem, 2.8vw, 2.6rem)',
+                    fontWeight: 400,
+                    color: '#000000',
+                    letterSpacing: '-0.03em',
+                    lineHeight: 1.1,
+                    margin: '0 0 8px 0',
+                    fontFamily: 'var(--font-heading)'
+                  }}>
+                    {panel.name}
+                  </h2>
+                  <div style={{
+                    fontSize: '0.7rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: '#888888',
+                    marginBottom: '10px'
+                  }}>
+                    {panel.label}
+                  </div>
+                  <p style={{
+                    fontSize: 'clamp(0.86rem, 1.2vw, 0.98rem)',
+                    color: '#555555',
+                    lineHeight: 1.65,
+                    margin: 0,
+                    maxWidth: '440px'
+                  }}>
+                    {panel.tagline}
+                  </p>
+                </div>
+
+                {/* Arrow button */}
+                <button
+                  onClick={(e) => { e.stopPropagation(); navigate(panel.path); }}
+                  aria-label={`Explore ${panel.name}`}
+                  style={{
+                    flexShrink: 0,
+                    alignSelf: 'flex-start',
+                    marginTop: '4px',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '50%',
+                    border: '1.5px solid rgba(0,0,0,0.22)',
+                    background: hovered === i ? '#000000' : 'transparent',
+                    color: hovered === i ? '#ffffff' : '#000000',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    transition: 'background 0.28s ease, color 0.28s ease'
+                  }}
+                >
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </button>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Button Below Gallery */}
+        {/* Button Below Panels */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -286,6 +249,14 @@ export default function OurMission({ onMeetSpecialists }) {
           </button>
         </motion.div>
       </div>
+
+      <style>{`
+        @media (max-width: 680px) {
+          #philosophy .vega-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
