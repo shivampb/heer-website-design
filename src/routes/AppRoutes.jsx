@@ -11,6 +11,7 @@ const HeerLabPage = lazy(() => import('../pages/HeerLab/HeerLabPage'));
 const ContactUsPage = lazy(() => import('../pages/ContactUs/ContactUsPage'));
 const ProductGridPage = lazy(() => import('../pages/Products/ProductGridPage'));
 const ProductDetailPage = lazy(() => import('../pages/ProductDetail/ProductDetailPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFound/NotFoundPage'));
 
 function PageLoader() {
   return (
@@ -180,6 +181,15 @@ export default function AppRoutes({
           element={
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.35, ease: 'easeOut' }}>
               <ProductDetailPage onBookClick={onBookClick} />
+            </motion.div>
+          }
+        />
+        {/* Catch-all: renders 404 for any unknown route */}
+        <Route
+          path="*"
+          element={
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.35, ease: 'easeOut' }}>
+              <NotFoundPage />
             </motion.div>
           }
         />
