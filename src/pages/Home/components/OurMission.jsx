@@ -40,7 +40,7 @@ const panels = [
     name: 'LOP & COP',
     label: 'LANDING & CAR OPERATING PANELS',
     tagline: 'Obsidian glass touch panels, stainless micro-stroke buttons, and high-contrast floor telemetry displays.',
-    image: '/products/PXL_20250829_070627798.jpg',
+    image: '/COP_LOP/COP_LOP/Unibody/Unibody_01.jpg',
     path: '/products/cop-lop'
   }
 ];

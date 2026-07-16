@@ -12,7 +12,7 @@ export default function ProductDetailPage({ onBookClick }) {
     window.scrollTo(0, 0);
   }, [code]);
 
-  const product = location.state?.product || allProducts.find(p => p.code.toLowerCase() === (code || '').toLowerCase()) || null;
+  const product = location.state?.product || allProducts.find(p => p.code.toLowerCase() === (code || '').toLowerCase() || p.subCategory.toLowerCase() === (code || '').toLowerCase() || p.title.toLowerCase() === (code || '').toLowerCase()) || null;
 
   const handleBack = () => {
     navigate('/products');

@@ -41,7 +41,7 @@ export const WELLNESS_DATA = {
         id: 4,
         title: "TOUCH CAR OPERATING PANELS (COP)",
         subtitle: "Obsidian & Champagne Gold Glass",
-        image: "/products/PXL_20250829_070627798.jpg",
+        image: "/COP_LOP/COP_LOP/Unibody/Unibody_01.jpg",
         categoryId: "cop-lop",
         desc: "Tempered obsidian black and champagne gold touch interfaces engineered for millimeter-perfect tactile response and luxury lobby harmony."
       },
@@ -49,7 +49,7 @@ export const WELLNESS_DATA = {
         id: 5,
         title: "LANDING CALL PANELS & BUTTONS",
         subtitle: "Tactile Micro-Stroke & LED Rings",
-        image: "/products/touch-lop-button.jpg",
+        image: "/COP_LOP/COP_LOP/Curve/Curve_01.png",
         categoryId: "cop-lop",
         desc: "Curved glass hall stations and stainless steel micro-stroke push buttons built with braille embossing and high-traffic durability."
       },
@@ -57,7 +57,7 @@ export const WELLNESS_DATA = {
         id: 6,
         title: "DIGITAL FLOOR TELEMETRY DISPLAYS",
         subtitle: "HD Direction Indicators",
-        image: "/products/glass-display-lop.jpg",
+        image: "/COP_LOP/COP_LOP/Nexus/Nexus_01.png",
         categoryId: "cop-lop",
         desc: "Crisp multi-segment OLED and TFT LCD floor direction screens offering instantaneous elevator position feedback and direction arrows."
       }

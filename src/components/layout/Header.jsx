@@ -39,7 +39,24 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
     {
       id: 'cop-lop',
       title: 'COP & LOP PANELS',
-      items: ['HEER-FIX-01', 'HEER-FIX-02', 'HEER-KEY-01', 'HEER-BTN-01', 'HEER-FIX-ACC', 'HEER-DIS-01', 'HEER-APP-01']
+      items: [
+        { label: 'Unibody', code: 'UNIBODY' },
+        { label: 'Unibody ARC', code: 'UNIBODY-ARC' },
+        { label: 'Unibody RS', code: 'UNIBODY-RS' },
+        { label: 'Unibody Step', code: 'UNIBODY-STEP' },
+        { label: 'Unibody Touch', code: 'UNIBODY-TOUCH' },
+        { label: 'Aura Luxuria', code: 'AURA-LUXURIA' },
+        { label: 'Aura Touch', code: 'AURA-TOUCH' },
+        { label: 'Curve', code: 'CURVE-STD' },
+        { label: 'Curve Goods', code: 'CURVE-GOODS' },
+        { label: 'Curve Touch', code: 'CURVE-TOUCH' },
+        { label: 'Curve Duplex LOP', code: 'CURVE-DUPLEX' },
+        { label: 'Korean', code: 'KOREAN-SERIES' },
+        { label: 'Nexus', code: 'NEXUS-ARRAY' },
+        { label: 'Regular', code: 'REGULAR-JUPITER' },
+        { label: 'Tejas Wood', code: 'TEJAS-WOOD' },
+        { label: 'Other Products', code: 'OTHER-COP-LOP' }
+      ]
     }
   ];
 
@@ -239,12 +256,15 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
                   gridTemplateColumns: col.items.length > 5 ? '1fr 1fr' : '1fr',
                   gap: '12px 24px'
                 }}>
-                  {col.items.map((subItem, idx) => (
+                  {col.items.map((subItem, idx) => {
+                    const itemLabel = typeof subItem === 'string' ? subItem : subItem.label;
+                    const itemCode = typeof subItem === 'string' ? subItem : subItem.code;
+                    return (
                     <li key={idx}>
                       <span
                         onClick={() => {
                           setMegaMenuOpen(false);
-                          navigate(`/product-detail/${subItem}`);
+                          navigate(`/product-detail/${itemCode}`);
                         }}
                         style={{
                           fontSize: '0.84rem',
@@ -264,10 +284,11 @@ export default function Header({ onBookClick, onSelfCheckClick, onNavClick, acti
                           e.currentTarget.style.transform = 'translateX(0)';
                         }}
                       >
-                        {subItem}
+                        {itemLabel}
                       </span>
                     </li>
-                  ))}
+                    );
+                  })}
                 </ul>
               </div>
             ))}

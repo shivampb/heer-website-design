@@ -152,14 +152,14 @@ export default function ProductCategories({ onBookSpecialist }) {
       id: 3,
       title: "COP & LOP TOUCH PANELS",
       desc: "Tempered obsidian black & champagne gold car operating panels and landing call stations engineered with zero-jerk logic.",
-      image: "/products/PXL_20250829_070627798.jpg",
+      image: "/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_001.jpg",
       categoryId: "cop-lop"
     },
     {
       id: 4,
       title: "PUSH BUTTONS & FLOOR DISPLAYS",
       desc: "Stainless steel micro-stroke tactile elevator buttons, braille audio announcers, and high-contrast digital floor screens.",
-      image: "/products/glass-display-lop.jpg",
+      image: "/COP_LOP/COP_LOP/Nexus/Nexus_01.png",
       categoryId: "cop-lop"
     }
   ];

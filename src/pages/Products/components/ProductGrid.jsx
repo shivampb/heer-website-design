@@ -114,74 +114,306 @@ export const allProducts = [
 
   // SECTION 2: COP & LOP PANELS
   {
-    id: 'p6',
-    code: 'HEER-FIX-01',
-    title: 'Obsidian Glass Touch COP Panel',
+    id: 'c1',
+    code: 'UNIBODY',
+    title: 'Unibody Landing & Car Operating Panel',
     category: 'cop-lop',
-    subCategory: 'HEER-FIX-01',
-    spec: 'Tempered Glass | Gold Rim | High-Speed Micro-Touch',
-    price: '$1,450',
-    image: '/products/PXL_20260610_125817426.jpg'
+    subCategory: 'Unibody',
+    spec: 'Seamless Monolithic Surface | Touch & Push Button Options | Ultra-Slim Profile',
+    price: '$850',
+    image: '/COP_LOP/COP_LOP/Unibody/Unibody_01.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/Unibody/Unibody_01.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_02.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_03.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_04.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_05.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_06.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_07.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_08.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_09.jpg'
+    ],
+    videos: [
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Site_01.mp4',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Site_02.mp4',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Site_03.mp4',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Site_04.mp4'
+    ]
   },
   {
-    id: 'p7',
-    code: 'HEER-FIX-02',
-    title: 'Champagne Gold Landing LOP Array',
+    id: 'c2',
+    code: 'UNIBODY-ARC',
+    title: 'Unibody ARC Curved Contour COP',
     category: 'cop-lop',
-    subCategory: 'HEER-FIX-02',
-    spec: 'Multi-Floor Matrix | High Contrast LED Digital Arrow',
-    price: '$620',
-    image: '/products/PXL_20260617_060017914.jpg'
+    subCategory: 'Unibody ARC',
+    spec: 'Ergonomic Arc Profile | High-Clarity Digital Display | Premium Metallic Finish',
+    price: '$920',
+    image: '/COP_LOP/COP_LOP/Unibody/Unibody_Arc_01.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Arc_01.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Arc_02.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Arc_03.jpg'
+    ],
+    videos: []
   },
   {
-    id: 'p8',
-    code: 'HEER-KEY-01',
-    title: 'Direct Touch Diagnostics Keypad',
+    id: 'c3',
+    code: 'UNIBODY-RS',
+    title: 'Unibody RS Sport & Luxury Touch Panel',
     category: 'cop-lop',
-    subCategory: 'HEER-KEY-01',
-    spec: 'Handheld Parameter Programmer | High-Contrast Readout',
-    price: '$240',
-    image: '/products/1782654258745.png'
+    subCategory: 'Unibody RS',
+    spec: 'Rapid Tactile Response | Tempered Obsidian Bezel | VIP Access Ready',
+    price: '$980',
+    image: '/COP_LOP/COP_LOP/Unibody/Unibody_RS01.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/Unibody/Unibody_RS01.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_RS02.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_RS03.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_RS04.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_RS05.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_RS06.jpg'
+    ],
+    videos: [
+      '/COP_LOP/COP_LOP/Unibody/Unibody_R01.mp4',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_R02.mp4',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_R03.mp4'
+    ]
   },
   {
-    id: 'p9',
-    code: 'HEER-BTN-01',
-    title: 'Micro-Stroke Stainless Push Buttons',
+    id: 'c4',
+    code: 'UNIBODY-STEP',
+    title: 'Unibody Step Modular Operating Array',
     category: 'cop-lop',
-    subCategory: 'HEER-BTN-01',
-    spec: 'Tactile Click Feedback | Braille Embedded | LED Ring',
-    price: '$120',
-    image: '/products/IMG-20260523-WA0053.jpg'
+    subCategory: 'Unibody Step',
+    spec: 'Stepped Architectural Profile | Braille Audio Integration | Heavy-Duty Gauge',
+    price: '$890',
+    image: '/COP_LOP/COP_LOP/Unibody/Unibody_Step_02.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Step_02.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Step_03.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Step_04.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Step_05.jpg'
+    ],
+    videos: [
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Step_01.mp4'
+    ]
   },
   {
-    id: 'p10',
-    code: 'HEER-FIX-ACC',
-    title: 'Braille & Audio Announcer Accessory',
+    id: 'c5',
+    code: 'UNIBODY-TOUCH',
+    title: 'Unibody Capacitive Touch Interface',
     category: 'cop-lop',
-    subCategory: 'HEER-FIX-ACC',
-    spec: 'Multi-Language Voice | High Clarity Speaker Chime Hub',
-    price: '$290',
-    image: '/products/IMG-20260523-WA0054.jpg'
+    subCategory: 'Unibody Touch',
+    spec: 'Zero-Force Touch Sensors | Custom LED Illumination | Scratch-Resistant Glass',
+    price: '$940',
+    image: '/COP_LOP/COP_LOP/Unibody/Unibody_Touch_01.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Touch_01.jpg',
+      '/COP_LOP/COP_LOP/Unibody/Unibody_Touch_02.jpg'
+    ],
+    videos: []
   },
   {
-    id: 'p11',
-    code: 'HEER-DIS-01',
-    title: 'High-Contrast OLED Floor Display',
+    id: 'c6',
+    code: 'AURA-LUXURIA',
+    title: 'Aura Luxuria Executive COP & LOP',
     category: 'cop-lop',
-    subCategory: 'HEER-DIS-01',
-    spec: '7-Inch IPS Screen | Custom Telemetry & Weather Graphics',
-    price: '$340',
-    image: '/products/PXL_20260617_060025536.jpg'
+    subCategory: 'Aura Luxuria',
+    spec: 'Luxury Hotel & Tower Grade | Champagne & Mirror Finish | Ambient Halo Illumination',
+    price: '$1,250',
+    image: '/COP_LOP/COP_LOP/Aura/Aura_Luxuria_01.png',
+    images: [
+      '/COP_LOP/COP_LOP/Aura/Aura_Luxuria_01.png',
+      '/COP_LOP/COP_LOP/Aura/Aura_Luxuria_02.jpg',
+      '/COP_LOP/COP_LOP/Aura/Aura_Luxuria_03.jpg',
+      '/COP_LOP/COP_LOP/Aura/Aura_Luxuria_04.jpg',
+      '/COP_LOP/COP_LOP/Aura/Aura_Luxuria_05.jpg',
+      '/COP_LOP/COP_LOP/Aura/Aura_Luxuria_06.jpg'
+    ],
+    videos: []
   },
   {
-    id: 'p12',
-    code: 'HEER-APP-01',
-    title: 'Heer Smart System Control App Gateway',
+    id: 'c7',
+    code: 'AURA-TOUCH',
+    title: 'Aura Touch Glass Operating Panel',
     category: 'cop-lop',
-    subCategory: 'HEER-APP-01',
-    spec: 'Bluetooth & WiFi Diagnostic Interface Dongle',
-    price: '$750',
-    image: '/products/1782586074854.png'
+    subCategory: 'Aura Touch',
+    spec: 'Crystal Obsidian Glass | Instant Capacitive Feedback | Weather & Dust Sealed',
+    price: '$1,100',
+    image: '/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_001.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_001.jpg',
+      '/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_01.jpg',
+      '/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_02.jpg',
+      '/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_03.jpg',
+      '/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_04.jpg',
+      '/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_05.jpg',
+      '/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_06.jpg',
+      '/COP_LOP/COP_LOP/Aura_Touch/Aura_Touch_07.jpg'
+    ],
+    videos: []
+  },
+  {
+    id: 'c8',
+    code: 'CURVE-STD',
+    title: 'Curve Series Ergonomic LOP & COP',
+    category: 'cop-lop',
+    subCategory: 'Curve',
+    spec: 'Architectural Curved Edge | Stainless Steel Body | Micro-Stroke Button Array',
+    price: '$780',
+    image: '/COP_LOP/COP_LOP/Curve/Curve_01.png',
+    images: [
+      '/COP_LOP/COP_LOP/Curve/Curve_01.png',
+      '/COP_LOP/COP_LOP/Curve/Curve_02.png',
+      '/COP_LOP/COP_LOP/Curve/Curve_03.jpg',
+      '/COP_LOP/COP_LOP/Curve/Curve_04.jpg',
+      '/COP_LOP/COP_LOP/Curve/Curve_05.jpg'
+    ],
+    videos: []
+  },
+  {
+    id: 'c9',
+    code: 'CURVE-GOODS',
+    title: 'Curve Goods / Dumbwaiter LOP Array',
+    category: 'cop-lop',
+    subCategory: 'Curve Goods',
+    spec: 'Industrial Freight Grade | High-Impact Resistance | Clear Call & Send Indication',
+    price: '$650',
+    image: '/COP_LOP/COP_LOP/Curve/Curve_DW_01.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/Curve/Curve_DW_01.jpg',
+      '/COP_LOP/COP_LOP/Curve/Curve_DW_02.jpg'
+    ],
+    videos: []
+  },
+  {
+    id: 'c10',
+    code: 'CURVE-TOUCH',
+    title: 'Curve Touch Seamless Glass Station',
+    category: 'cop-lop',
+    subCategory: 'Curve Touch',
+    spec: 'Curved Glass Face | Touch Indicators | Modern Residential & Commercial Design',
+    price: '$860',
+    image: '/COP_LOP/COP_LOP/Curve/Curve_Touch_1.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/Curve/Curve_Touch_1.jpg',
+      '/COP_LOP/COP_LOP/Curve/Curve_Touch_2.jpg',
+      '/COP_LOP/COP_LOP/Curve/Curve_Touch_3.jpg'
+    ],
+    videos: []
+  },
+  {
+    id: 'c11',
+    code: 'CURVE-DUPLEX',
+    title: 'Curve Duplex Dual-Elevator Landing Panel',
+    category: 'cop-lop',
+    subCategory: 'Curve Duplex LOP',
+    spec: 'Multi-Car Dispatch Hub | Up/Down Arrow Arrows | High Contrast Floor Telemetry',
+    price: '$910',
+    image: '/COP_LOP/COP_LOP/Curve/Duplex_00.png',
+    images: [
+      '/COP_LOP/COP_LOP/Curve/Duplex_00.png',
+      '/COP_LOP/COP_LOP/Curve/Duplex_01.jpg',
+      '/COP_LOP/COP_LOP/Curve/Duplex_02.jpg',
+      '/COP_LOP/COP_LOP/Curve/Duplex_03.jpg',
+      '/COP_LOP/COP_LOP/Curve/Duplex_04.jpg'
+    ],
+    videos: []
+  },
+  {
+    id: 'c12',
+    code: 'KOREAN-SERIES',
+    title: 'Korean Minimalist COP & Duplex LOP',
+    category: 'cop-lop',
+    subCategory: 'Korean',
+    spec: 'Refined Korean Architectural Aesthetic | Precision Laser Bezel | Tactile Micro-Strokes',
+    price: '$890',
+    image: '/COP_LOP/COP_LOP/Korean/Korean_001.png',
+    images: [
+      '/COP_LOP/COP_LOP/Korean/Korean_001.png',
+      '/COP_LOP/COP_LOP/Korean/Korean_01.jpg',
+      '/COP_LOP/COP_LOP/Korean/Korean_02.jpg',
+      '/COP_LOP/COP_LOP/Korean/Korean_03.jpg',
+      '/COP_LOP/COP_LOP/Korean/Korean_Duplex.jpg',
+      '/COP_LOP/COP_LOP/Korean/Korean_Duplex_01.jpg'
+    ],
+    videos: []
+  },
+  {
+    id: 'c13',
+    code: 'NEXUS-ARRAY',
+    title: 'Nexus Digital & Tactile Panel Suite',
+    category: 'cop-lop',
+    subCategory: 'Nexus',
+    spec: 'Smart IOT Integration | Modular Frame | Crisp TFT LCD Direction Arrows',
+    price: '$960',
+    image: '/COP_LOP/COP_LOP/Nexus/Nexus_01.png',
+    images: [
+      '/COP_LOP/COP_LOP/Nexus/Nexus_01.png',
+      '/COP_LOP/COP_LOP/Nexus/Nexus_02.jpg',
+      '/COP_LOP/COP_LOP/Nexus/Nexus_03.jpg',
+      '/COP_LOP/COP_LOP/Nexus/Nexus_04.jpg',
+      '/COP_LOP/COP_LOP/Nexus/Nexus_05.jpg',
+      '/COP_LOP/COP_LOP/Nexus/Nexus_06.jpg',
+      '/COP_LOP/COP_LOP/Nexus/Nexus_07.jpg',
+      '/COP_LOP/COP_LOP/Nexus/Nexus_8.jpg'
+    ],
+    videos: []
+  },
+  {
+    id: 'c14',
+    code: 'REGULAR-JUPITER',
+    title: 'Regular & Jupiter Standard COP/LOP Array',
+    category: 'cop-lop',
+    subCategory: 'Regular',
+    spec: 'Proven Industry Workhorse | Stainless Steel 304 | Vandal-Proof Push Buttons',
+    price: '$680',
+    image: '/COP_LOP/COP_LOP/Regular/Jupiter_01.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/Regular/Jupiter_01.jpg',
+      '/COP_LOP/COP_LOP/Regular/Jupiter_02.jpg',
+      '/COP_LOP/COP_LOP/Regular/Jupiter_03.jpg',
+      '/COP_LOP/COP_LOP/Regular/Jupiter_04.jpg',
+      '/COP_LOP/COP_LOP/Regular/Jupiter_05.jpg',
+      '/COP_LOP/COP_LOP/Regular/Jupiter_06.jpg',
+      '/COP_LOP/COP_LOP/Regular/Jupiter_07.jpg',
+      '/COP_LOP/COP_LOP/Regular/Jupiter_08.jpg'
+    ],
+    videos: []
+  },
+  {
+    id: 'c15',
+    code: 'TEJAS-WOOD',
+    title: 'Tejas Wood Artisan Cabin COP & LOP',
+    category: 'cop-lop',
+    subCategory: 'Tejas Wood',
+    spec: 'Natural Timber Trim & Accents | Luxury Residential Elevator Suite | Warm Ambient Glow',
+    price: '$1,350',
+    image: '/COP_LOP/COP_LOP/Tejas_Wood/Tejas_Wood_01.png',
+    images: [
+      '/COP_LOP/COP_LOP/Tejas_Wood/Tejas_Wood_01.png',
+      '/COP_LOP/COP_LOP/Tejas_Wood/Tejas_Wood_02.jpg',
+      '/COP_LOP/COP_LOP/Tejas_Wood/Tejas_Wood_03.png',
+      '/COP_LOP/COP_LOP/Tejas_Wood/Tejas_Wood_04.jpg'
+    ],
+    videos: []
+  },
+  {
+    id: 'c16',
+    code: 'OTHER-COP-LOP',
+    title: 'Specialty COP, Baby LOP & Security Panels',
+    category: 'cop-lop',
+    subCategory: 'Other Products',
+    spec: 'Box-Type COPs | Full Length Pillars | Baby LOP Stations | Integrated RFID Security Systems',
+    price: '$720',
+    image: '/COP_LOP/COP_LOP/COP_BoxType.jpg',
+    images: [
+      '/COP_LOP/COP_LOP/COP_BoxType.jpg',
+      '/COP_LOP/COP_LOP/Full_Lenght_COP.jpg',
+      '/COP_LOP/COP_LOP/Baby_LOP.jpg',
+      '/COP_LOP/COP_LOP/Security System.png'
+    ],
+    videos: []
   }
 ];
 
@@ -195,7 +427,25 @@ export const categoryMap = {
   'cop-lop': { 
     id: 'cop-lop', 
     label: 'COP & LOP Panels', 
-    subCategories: ['All COP & LOP Panels', 'HEER-FIX-01', 'HEER-FIX-02', 'HEER-KEY-01', 'HEER-BTN-01', 'HEER-FIX-ACC', 'HEER-DIS-01', 'HEER-APP-01'] 
+    subCategories: [
+      'All COP & LOP Panels',
+      'Unibody',
+      'Unibody ARC',
+      'Unibody RS',
+      'Unibody Step',
+      'Unibody Touch',
+      'Aura Luxuria',
+      'Aura Touch',
+      'Curve',
+      'Curve Goods',
+      'Curve Touch',
+      'Curve Duplex LOP',
+      'Korean',
+      'Nexus',
+      'Regular',
+      'Tejas Wood',
+      'Other Products'
+    ] 
   }
 };
 
