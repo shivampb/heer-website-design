@@ -533,13 +533,13 @@ export default function ProductGridPage({ selectedCategory = 'all', onSelectCate
     >
       <div style={{
         width: '100%',
-        height: '140px',
+        height: '240px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         margin: '6px 0 16px 0',
         position: 'relative',
-        flex: 1
+        flexShrink: 0
       }}>
         <img
           src={product.image}
