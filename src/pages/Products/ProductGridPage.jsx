@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useNavigationType } from 'react-router-dom';
 import ProductGridPageComponent from './components/ProductGrid';
 
 export default function ProductGridPage({ onBookClick }) {
   const { category = 'all' } = useParams();
   const navigate = useNavigate();
+  const navType = useNavigationType();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+    if (navType !== 'POP') {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [navType]);
 
   const decodedCategory = decodeURIComponent(category || 'all');
 

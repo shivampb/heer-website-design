@@ -15,7 +15,11 @@ export default function ProductDetailPage({ onBookClick }) {
   const product = location.state?.product || allProducts.find(p => p.code.toLowerCase() === (code || '').toLowerCase() || p.subCategory.toLowerCase() === (code || '').toLowerCase() || p.title.toLowerCase() === (code || '').toLowerCase()) || null;
 
   const handleBack = () => {
-    navigate('/products');
+    if (window.history.length > 2) {
+      navigate(-1);
+    } else {
+      navigate('/products');
+    }
   };
 
   const handleInquire = (prod) => {
